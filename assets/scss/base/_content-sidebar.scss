@@ -1,0 +1,93 @@
+/*---:[ sidebar styles ]:---*/
+#sidebar {
+		//@include span-columns($total-columns);
+        display: block;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        //@include pad($container-padding,$container-padding);
+        //margin-top: $topbar-ht;
+        position: absolute;
+        z-index: 1;
+}
+.sidebar_list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+	.sidebar_list ul {
+        border-bottom: $general_border;
+		height: 100px;
+		width: 100%;
+		text-align: center;
+	}
+	.sidebar_list li.widget, .sidebar_list li.linkcat {
+		line-height: 19px;
+		margin: 0;
+	}
+	li.widget p {
+		margin: 0 0 17px 0;
+	}
+		li.widget ul, li.linkcat ul {
+			font-size: 0;
+			list-style: none;
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
+		}
+			li.widget li, li.linkcat li {
+				display: inline-block;
+				overflow: hidden;
+			}
+				/*---:[ sidebar link colors ]:---*/
+				li.widget li a:hover, li.linkcat li a:hover {
+					color: black(0.9);
+				}
+				
+/*---:[ custom sidebar styles ]:---*/
+.crpw-item {
+	//border-bottom: 1px solid rgba(#fff, 0.4);
+	border-right: $nav_border;
+	display: inline-block;
+	font-family: $recentposts_fontfamily;
+	height: 100%;
+	line-height: 1.3rem;
+	width: 25%;
+    &:last-child { border-right: none; }
+	a {
+		color: $recentposts_link_color;
+		display: block;
+		font-size: 0;
+		height: 100%;
+		padding: 0px 20px;
+		//position: relative;
+		word-wrap: break-word;
+		vertical-align: middle;
+		&:before {
+			  content: '';
+			  display: inline-block;
+			  height: 100%;
+			  width: 0;
+			  vertical-align: middle;
+		}
+	}
+}
+.crpw-item-meta {
+	display: inline-block;
+	font-size: 0.92rem;
+	font-weight: bold;
+	vertical-align: middle;
+}
+.widgettitle {
+	text-align: center;
+}
+.widget_recent_entries {
+	ul {
+		background-color: $recentposts_bg_color;
+	}
+	h2 {
+		@include rem(20px);
+        display: none;
+		margin: 0;
+	}
+}

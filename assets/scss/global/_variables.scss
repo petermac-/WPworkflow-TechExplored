@@ -1,0 +1,95 @@
+/* Susy Grid */
+$container-style: fluid;
+$total-columns: 48;
+$column-width: 4em;
+$gutter-width: 0em;
+$grid-padding: $gutter-width;
+
+$container-cols: 46;
+$container-padding: 1;
+$topbar-cols: $total-columns;
+
+$content-cols: $container-cols;
+$content-sidebar-cols: $container-cols - $content-cols;
+$logo-cols: 10;
+$nav-cols: $topbar-cols - $logo-cols;
+$nav-cols-2col: $nav-cols - 11;
+$container-cols-2col: $total-columns - 2 * $nav-cols-2col;
+
+$footer-cols: $content-cols;
+
+
+/* Breakpoints */
+//$contentBreak: 972px;
+//$contentBreak: 1002px; //985px
+$contentBreak:  912px;
+
+/* Percentages */
+$entryP: 540px / $contentBreak * 100%;
+$thumbcontainerP: 100 - $entryP;
+
+
+/* Header Sizes */
+$topbar-ht: 50px;
+$topbar-element-ht: $topbar-ht;
+$nav_elements: 6;
+$nav_width: 100/$nav_elements * 1%;
+
+$icon-font-fontsize: 2em;
+$icon-font-width: 32px;
+$icon-font-toppading: ($topbar-ht - $icon-font-width) / 2;
+$icon-font-height: $icon-font-width + $icon-font-toppading; 
+
+
+/* z-index */
+$zCaption: 10;
+$zComment: 1;
+$zCommentPic: 2;
+
+
+/* Colors */
+$topbar_color: #232d33;
+//$topbar_color: #174058;
+$body_bg_color: #f6f6f6;
+$content_bg_color: $body_bg_color;
+$content_sidebar_color: darken($body_bg_color,0%);
+$recentposts_bg_color: black(0.8);
+
+$search_bg_color: #232d33;
+
+$link_color: #FFA500;
+$recentposts_link_color: #f8f8f8;
+$postmeta_color: #274D72;
+
+$heading_color: #000;
+$heading_hover_color: #000;
+$heading_visited_color: #000;
+
+$nav_text_color: #444;
+$nav_bg_color: $body_bg_color;
+$nav_hover_color: #333;
+
+$searchbt_bgc: #F5F5F5;
+$searchbt_textc: darken(#849696,15%);
+
+
+/* Borders */
+$nav_border: 1px solid white(0.3);
+$postdate_btborder: 1px solid #CCCCCC;
+$postmeta_topborder: $postdate_btborder;
+//$content_border: 1px solid rgba(#CCCCCC,0.8);
+$content_border: 3px solid rgba(#ffa500,1);
+$general_border: 4px solid darken(#e2e2e2,30%);
+$general_border2: 4px solid #e2e2e2;
+$footer_topborder: $content_border;
+
+
+/* Gradients */
+//$nav_hover_grad: top, rgba(lighten($nav_bg_color, 5%),0.10) 0%, rgba(lighten($nav_bg_color, 10%),0.10) 100%;
+$topbar_grad: top, $topbar_color 0%, lighten($topbar_color, 1%) 50%, lighten($topbar_color, 0%) 100%;
+$navbar_grad: top, $nav_bg_color 0%, lighten($nav_bg_color, 1%) 50%, lighten($nav_bg_color, 0%) 100%;
+$searchbt_bgc_grad: top, darken($searchbt_bgc, 0%) 0%, darken($searchbt_bgc, 10%) 100%;
+$searchbt_hover_grad: top, darken($searchbt_bgc, 15%) 0%, lighten($searchbt_bgc, 10%) 100%;
+
+/* Mixin */
+$default-prefixes: webkit moz ms o;

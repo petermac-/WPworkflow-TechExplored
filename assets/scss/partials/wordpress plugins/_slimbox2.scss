@@ -1,0 +1,85 @@
+#lbOverlay
+{
+	background-color:#000;
+	cursor:pointer;
+	height:100%;
+	left:0;
+	position:fixed;
+	top:0;
+	width:100%;
+	z-index:9999;
+}
+
+#lbCenter,#lbBottomContainer
+{
+	background-color:#fff;
+	overflow:hidden;
+	position:absolute;
+	z-index:9999;
+}
+
+.lbLoading
+{
+	background:#fff url(images/default/loading.gif) no-repeat center;
+}
+
+#lbImage
+{
+	background-repeat:no-repeat;
+	border:10px solid #fff;
+	left:0;
+	position:absolute;
+	top:0;
+}
+
+#lbPrevLink,#lbNextLink
+{
+	display:block;
+	outline:none;
+	position:absolute;
+	top:0;
+	width:50%;
+}
+
+#lbPrevLink
+{
+	background:transparent no-repeat 0 15%;
+	left:0;
+}
+
+#lbNextLink
+{
+	background:transparent no-repeat 100% 15%;
+	right:0;
+}
+
+#lbBottom
+{
+	border:10px solid #fff;
+	border-top-style:none;
+	color:#666;
+	font-family:Verdana,Arial,Geneva,Helvetica,sans-serif;
+	font-size:10px;
+	line-height:1.4em;
+	text-align:left;
+}
+
+#lbCloseLink
+{
+	display:block;
+	float:right;
+	height:22px;
+	margin:5px 0;
+	outline:none;
+	width:66px;
+}
+
+#lbCaption,#lbNumber
+{
+	margin-right:71px;
+}
+
+#lbCaption
+{
+	font-weight:700;
+}

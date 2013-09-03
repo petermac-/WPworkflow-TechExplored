@@ -1,0 +1,60 @@
+/* @group Advanced-Spoiler */
+
+/* @group spoiler-content */
+div.spoiler-body {
+padding:0; 
+margin:0;
+}
+div.spoiler-body p, div.spoiler-body div {
+padding:0; 
+margin:0;
+/*padding:2px 1px;
+margin:1px;*/
+}
+/*div.spoiler-body p.crayon-syntax, div.spoiler-body p.crayon-plain, div.spoiler-body p.crayon-theme-classic, div.spoiler-body p.crayon-font-monaco, div.spoiler-body div.crayon-syntax, div.spoiler-body div.crayon-theme-classic, div.spoiler-body div.crayon-font-monaco, div.spoiler-body div.crayon-plain {
+padding:0;
+margin:0;
+}*/
+
+/* @end spoiler-content */
+
+/* @group toggle-link */
+a.spoiler-tgl {
+padding: 2px 4px 2px 22px;
+background-image: url('collapseicon.gif');
+background-position: 3px 3px;
+background-repeat: no-repeat;
+border-bottom: 1px dotted #999;
+margin: 0;
+}
+a:hover.spoiler-tgl {
+border-color: #696969;
+}
+a.spoiler-tgl.collapsed { 
+background-position: 3px -36px;
+}
+/* @end toggle-link */
+
+/* @group widget & template */
+.effcollapse {
+padding-left: 16px !important;
+background-image: url('collapseicon.gif');
+background-position: 0 2px;
+background-repeat: no-repeat;
+cursor: pointer;
+}
+
+.effcollapse.collapsed { 
+background-position: 0 -37px;
+}
+/* @end widget & template */
+
+/* @group DO NOT EDIT */
+.spoiler_outer_box {/* wrapper for blind effect */
+overflow: hidden !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+/* @end DO NOT EDIT */
+
+/* @end Advanced-Spoiler */

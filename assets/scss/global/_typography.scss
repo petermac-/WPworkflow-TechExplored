@@ -1,0 +1,489 @@
+/* Typography */
+$h1: 30px;
+$h2: 22px;
+$h2_ff: "LatoBold";
+$h3: 20px;
+$h3-comments: 18px;
+$h4: 15px;
+
+
+//$head_font: "OpenSans";
+//$head_font_url: "assets/fonts/OpenSans-ExtraBold-webfont.svg";
+
+//$head_font: "Lato";
+//$head_font_url: "assets/fonts/Lato-Bol-webfont.svg";
+
+$head_font: "LatoBold";
+$head_font_url: "assets/fonts/Lato-Bol-webfont.svg";
+//$head_font_url: "assets/fonts/Lato-Bla-webfont.svg";
+
+$head_font_weight: normal;
+//$head_font_weight: 800;
+
+$body_font: "PTSerifRegular";
+//$body_font: "Georgia",serif;
+//$body_font: Verdana, Arial, Helvetica, sans-serif;
+$body_fontsize: 15px;
+
+$recentposts_fontfamily: "SourceSansProRegular";
+
+$nav_fontsize: 14px;
+$abbr_fontsize: 8px;
+$pre_fontsize: 13px;
+$p-unstyled_fontsize: 13px;
+$breadcrumbs_fontsize: 12px;
+$footer_fontsize: 11px;
+
+$postdate_ff: "PTSansNarrowRegular";
+$postdate_fz: 14px;
+$blockquote_fz: 14px;
+$postmeta_fz: 13px;
+$navigation_fz: 12px;
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: $head_font;
+        src: url($head_font_url) format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+    /*@font-face {
+        font-family: "SourceSansProRegular";
+        src: url("assets/fonts/SourceSansPro-Regular-webfont.svg#SourceSansProRegular") format("svg");
+    	font-weight: normal;
+    	font-style: normal;
+    }*/
+    @font-face {
+        font-family: "icomoon";
+        src: url("assets/fonts/icomoon.svg#icomoon") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "sosa";
+        src: url("assets/fonts/sosa-regular-webfont.svg#sosa") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "fontello";
+        src: url("assets/fonts/fontello.svg?40378300#fontello") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "DroidSans";
+        src: url("assets/fonts/DroidSans-Bold-webfont.svg#DroidSans") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "LatoBold";
+        src: url("assets/fonts/Lato-Bol-webfont.svg#LatoBold") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+    /*@font-face {
+        font-family: "BitterRegular";
+        src: url("assets/fonts/Bitter-Regular-webfont.svg#BitterRegular") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }*/
+    /*@font-face {
+        font-family: "PTSerifRegular";
+        src: url("assets/fonts/PTF55F-webfont.svg#PTSerifRegular") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }*/
+    @font-face {
+      font-family: "PTSansRegular";
+      src: url("assets/fonts/PTS55F-webfont.svg#PTSansRegular") format("svg");
+      font-weight: normal;
+      font-style: normal;
+  	}
+  	 /*@font-face {
+  	     font-family: "LatoHairline";
+  	     src: url("assets/fonts/Lato-Hai-webfont.svg#LatoHairline") format("svg");
+  	     font-weight: normal;
+  	     font-style: normal;
+  	 }
+  	 @font-face {
+  	     font-family: "LatoLight";
+  	     src: url("assets/fonts/Lato-Lig-webfont.svg#LatoLight") format("svg");
+  	     font-weight: normal;
+  	     font-style: normal;
+  	 }*/
+  	 @font-face {
+  	     font-family: "LatoBlack";
+  	     src: url("assets/fonts/Lato-Bla-webfont.svg#LatoBlack") format("svg");
+  	     font-weight: normal;
+  	     font-style: normal;
+  	 }
+  	 @font-face {
+  	     font-family: "AbelRegular";
+  	     src: url("assets/fonts/abel-regular-webfont.svg#AbelRegular") format("svg");
+  	     font-weight: normal;
+  	     font-style: normal;
+  	 }
+  	@font-face {
+  	     font-family: "space_ageregular";
+  	     src: url("assets/fonts/space_age-webfont.svg#space_ageregular") format("svg");
+  	     font-weight: normal;
+  	     font-style: normal;
+  	 }
+  	 @font-face {
+  	      font-family: "PTSansCaptionRegular";
+  	      src: url("assets/fonts/PTC55F-webfont.svg#PTSansCaptionRegular") format("svg");
+  	      font-weight: normal;
+  	      font-style: normal;
+  	  }
+  	  @font-face {
+  	       font-family: "OpenSansRegular";
+  	       src: url("assets/fonts/OpenSans-Regular-webfont.svg#OpenSansRegular") format("svg");
+  	       font-weight: normal;
+  	       font-style: normal;
+  	   }
+  	   @font-face {
+  	        font-family: "OpenSansSemibold";
+  	        src: url("assets/fonts/OpenSans-Semibold-webfont.svg#OpenSansSemibold") format("svg");
+  	        font-weight: normal;
+  	        font-style: normal;
+  	    }
+  	    @font-face {
+  	         font-family: "OpenSansBold";
+  	         src: url("assets/fonts/OpenSans-Bold-webfont.svg#OpenSansBold") format("svg");
+  	         font-weight: normal;
+  	         font-style: normal;
+  	     }
+  	     @font-face {
+  	          font-family: "SourceSansProRegular";
+  	          src: url("assets/fonts/SourceSansPro-Regular-webfont.svg#SourceSansProRegular") format("svg");
+  	          font-weight: normal;
+  	          font-style: normal;
+  	      }
+  	      @font-face {
+  	           font-family: "SourceSansProSemiBold";
+  	           src: url("assets/fonts/SourceSansPro-Semibold-webfont.svg#SourceSansProSemiBold") format("svg");
+  	           font-weight: normal;
+  	           font-style: normal;
+  	       }
+  	       @font-face {
+  	            font-family: "SourceSansProBold";
+  	            src: url("assets/fonts/SourceSansPro-Bold-webfont.svg#SourceSansProBold") format("svg");
+  	            font-weight: normal;
+  	            font-style: normal;
+  	        }
+  	        @font-face {
+  	             font-family: "PTSansNarrowRegular";
+  	             src: url("assets/fonts/PTN57F-webfont.svg#PTSansNarrowRegular") format("svg");
+  	             font-weight: normal;
+  	             font-style: normal;
+  	         }
+  	       @font-face {
+  	            font-family: "PTSansNarrowBold";
+  	            src: url("assets/fonts/PTN77F-webfont.svg#PTSansNarrowBold") format("svg");
+  	            font-weight: normal;
+  	            font-style: normal;
+  	        }
+  	        @font-face {
+  	             font-family: "League Gothic";
+  	             src: url("assets/fonts/leaguegothic-regular-webfont.svg#league_gothicregular") format("svg");
+  	             font-weight: normal;
+  	             font-style: normal;
+  	         }
+  	         @font-face {
+  	              font-family: "League Gothic Condensed";
+  	              src: url("assets/fonts/leaguegothic-condensed-regular-webfont.svg#league_gothic_condensed-Rg") format("svg");
+  	              font-weight: normal;
+  	              font-style: normal;
+  	          }
+}
+
+/*---:[ global typography elements ]:---*/
+a {
+    color: #000;
+	text-decoration: none;
+	&:hover { color: #000; }
+	&:visited { color: #000; }
+}
+a img {
+	border: none;
+}
+blockquote {
+	border-left: 3px solid #a90000;
+	color: #555;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	margin: 0 0 20px 20px;
+	padding: 0 0 0 10px;
+}
+abbr, acronym {
+	@include rem($abbr_fontsize);
+	border-bottom: 1px dotted #999;
+	cursor: help;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+code {
+	color: #090;
+	font-family: Courier, "Courier New", monospace;
+	line-height: 10px;
+}
+pre {
+	@include rem($pre_fontsize);
+	margin: 0 0 15px 0;
+	padding: 8px;
+	overflow: auto;
+	background: #ececec;
+}
+p.unstyled {
+	@include rem($p-unstyled_fontsize);
+}
+p.center {
+	text-align: center;
+}
+#breadcrumbs {
+	@include rem($breadcrumbs_fontsize);
+	padding-bottom: 3px;
+}
+
+/*---:[ headlines ]:---*/
+h1, h2, h3, h4 {
+	color: $heading_color;
+	letter-spacing: 0px;
+	font-weight: $head_font_weight;
+}
+h1, h2 {
+	line-height: 1.6em;
+	margin-top: 0.4em;
+	margin-bottom: 0;
+}
+h1 {
+	@include rem($h1);
+	@include liga();
+	font-family: $head_font;
+	margin-top: 0.2em;
+    margin-bottom: 0;
+}
+h2 {
+	@include rem($h2);
+	font-family: $h2_ff;
+}
+	/*---:[ headline link colors on the main page, archive pages, and search pages ]:---*/
+h1 a, h1 a:visited, h2 a, h2 a:visited {
+	color: $heading_color;
+}
+	.page h1 {
+		border-bottom: 1px double #ccc;
+		margin: 0 0 6px 0;
+	}
+	.archive h1 {
+		margin: 0 0 10px 0;
+	}
+	
+h3 {
+	@include rem($h3);
+}
+	.entry h3 {
+		margin: 17px 0 6px 0;
+	}
+	#comments h3 {
+		@include rem($h3-comments);
+	}
+	#comments h3.comment_intro {
+		border-top: 2px double #ccc;
+		margin: 0 0 11px 0;
+		padding: 21px 0 0 0;
+	}
+	#comments h3#respond {
+		margin: 22px 0 0 0;
+	}
+
+h4 {
+	@include rem($h4);
+    font-weight: bold;
+}
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+    font-family: "icomoon";
+    content: attr(data-icon);
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+.sosa[data-icon]:before {
+    font-family: "sosa";
+    content: attr(data-icon);
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it"s slower:
+[class*="icon-"] {
+
+.icon-android, .icon-chrome, .icon-firefox, .icon-windows8, .icon-magnifying-glass {
+    font-family: "icomoon";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+.icon-android:before {
+    content: "\e000";
+}
+.icon-chrome:before {
+    content: "\e001";
+}
+.icon-firefox:before {
+    content: "\e002";
+}
+.icon-windows8:before {
+    content: "\e003";
+}
+.icon-magnifying-glass:before {
+    content: "\e004";
+}*/
+
+[class^="icon-ello"]:before, [class*=" icon-ello"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-ellosearch-4 {
+	margin-right: 0.4em;
+	text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
+}
+.icon-ellodesktop-1 {
+	margin-right: 0.4em;
+	text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
+}
+.icon-elloup-open-1 {
+    @include rem(16px);
+    background-color: #57AFE5;
+    color: #FFF;
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: 0;
+    margin: 0;
+    line-height: 2.1em;
+    //padding-bottom: 2px;
+    width: 40px;
+    text-align: center;
+}
+.icon-elloandroid-1:before { content: '\e803'; } /* '' */
+.icon-ellowindows:before { content: '\e804'; } /* '' */
+.icon-elloemail:before { content: '\e809'; } /* '' */
+.icon-ellogmail:before { content: '\e808'; } /* '' */
+.icon-elloup-3:before { content: '\e827'; } /* '' */
+.icon-elloup-2:before { content: '\e826'; } /* '' */
+.icon-elloup-big:before { content: '\e835'; } /* '' */
+.icon-elloup-1:before { content: '\e823'; } /* '' */
+.icon-elloup-fat:before { content: '\e825'; } /* '' */
+.icon-elloup-bold:before { content: '\e824'; } /* '' */
+.icon-elloup-dir-1:before { content: '\e83b'; } /* '' */
+.icon-elloup-dir:before { content: '\e838'; } /* '' */
+.icon-ellomenu-3:before { content: '\e849'; } /* '' */
+.icon-ellomail-6:before { content: '\e80c'; } /* '' */
+.icon-ellomail-3:before { content: '\e807'; } /* '' */
+.icon-ellomail:before { content: '\e800'; } /* '' */
+.icon-ellomail-2:before { content: '\e806'; } /* '' */
+.icon-elloup-5:before { content: '\e82d'; } /* '' */
+.icon-ellosearch:before { content: '\e816'; } /* '' */
+.icon-ellodesktop-2:before { content: '\e812'; } /* '' */
+.icon-ellomail-5:before { content: '\e80b'; } /* '' */
+.icon-elloup-outline:before { content: '\e82b'; } /* '' */
+.icon-elloup-4:before { content: '\e82a'; } /* '' */
+.icon-elloup-small:before { content: '\e82c'; } /* '' */
+.icon-ellosearch-5:before { content: '\e81c'; } /* '' */
+.icon-ellodesktop-1:before { content: '\e811'; } /* '' */
+.icon-ellodesktop-3:before { content: '\e815'; } /* '' */
+.icon-ellopicture-2:before { content: '\e840'; } /* '' */
+.icon-elloflow-split:before { content: '\e84b'; } /* '' */
+.icon-elloflow-merge:before { content: '\e84c'; } /* '' */
+.icon-elloflow-cross:before { content: '\e84a'; } /* '' */
+.icon-ellopicture-outline:before { content: '\e841'; } /* '' */
+.icon-ellopicture-1:before { content: '\e83f'; } /* '' */
+.icon-elloinfinity-outline:before { content: '\e814'; } /* '' */
+.icon-ellomail-1:before { content: '\e805'; } /* '' */
+.icon-elloup:before { content: '\e820'; } /* '' */
+.icon-ellopi-outline:before { content: '\e813'; } /* '' */
+.icon-elloup-open:before { content: '\e81f'; } /* '' */
+.icon-ellomail-4:before { content: '\e80a'; } /* '' */
+.icon-ellomenu-outline:before { content: '\e848'; } /* '' */
+.icon-ellomenu-1:before { content: '\e846'; } /* '' */
+.icon-elloupload-outline:before { content: '\e828'; } /* '' */
+.icon-elloupload:before { content: '\e829'; } /* '' */
+.icon-ellosearch-outline:before { content: '\e818'; } /* '' */
+.icon-ellosearch-2:before { content: '\e819'; } /* '' */
+.icon-elloup-bold-1:before { content: '\e82e'; } /* '' */
+.icon-elloup-circled:before { content: '\e832'; } /* '' */
+.icon-elloup-open-1:before { content: '\e81e'; } /* '' */
+.icon-elloup-open-3:before { content: '\e830'; } /* '' */
+.icon-elloup-open-mini:before { content: '\e831'; } /* '' */
+.icon-elloup-open-big:before { content: '\e82f'; } /* '' */
+.icon-elloup-micro:before { content: '\e839'; } /* '' */
+.icon-ellofirefox:before { content: '\e843'; } /* '' */
+.icon-ellochrome:before { content: '\e842'; } /* '' */
+.icon-elloie:before { content: '\e844'; } /* '' */
+.icon-elloup-open-2:before { content: '\e822'; } /* '' */
+.icon-ellomenu-2:before { content: '\e847'; } /* '' */
+.icon-elloupload-1:before { content: '\e821'; } /* '' */
+.icon-ellomonitor-1:before { content: '\e810'; } /* '' */
+.icon-elloup-circled-1:before { content: '\e83c'; } /* '' */
+.icon-ellomenu:before { content: '\e845'; } /* '' */
+.icon-ellosort-up:before { content: '\e837'; } /* '' */
+.icon-ellomail-alt:before { content: '\e801'; } /* '' */
+.icon-elloangle-double-up:before { content: '\e836'; } /* '' */
+.icon-elloangle-up:before { content: '\e833'; } /* '' */
+.icon-ellodesktop:before { content: '\e80e'; } /* '' */
+.icon-ellogamepad:before { content: '\e80d'; } /* '' */
+.icon-elloup-6:before { content: '\e834'; } /* '' */
+.icon-elloandroid:before { content: '\e802'; } /* '' */
+.icon-ellowin8:before { content: '\e84d'; } /* '' */
+.icon-ellosearch-4:before { content: '\e81b'; } /* '' */
+.icon-ellopicture:before { content: '\e83e'; } /* '' */
+.icon-ellopicture-3:before { content: '\e83d'; } /* '' */
+.icon-ellomonitor:before { content: '\e80f'; } /* '' */
+.icon-elloupload-2:before { content: '\e83a'; } /* '' */
+.icon-ellosearch-6:before { content: '\e81d'; } /* '' */
+.icon-ellosearch-1:before { content: '\e817'; } /* '' */
+.icon-ellosearch-3:before { content: '\e81a'; } /* '' */

@@ -1,0 +1,26 @@
+@import "wordpress plugins/_advanced-spoiler.scss";
+@import "wordpress plugins/_consolas.scss";
+@import "wordpress plugins/crayon/_crayon_style.scss";
+@import "wordpress plugins/crayon/_global_style.scss";
+//@import "wordpress plugins/_customglossyblack.scss";
+@import "wordpress plugins/_slimbox2.scss";
+@import "wordpress plugins/_mirc-dark.scss";
+
+/****************
+WordPress styles
+****************/
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px; 
+    margin: 0;
+    padding: 0 4px 5px;
+}
+.sticky {}
+.gallery-caption {}

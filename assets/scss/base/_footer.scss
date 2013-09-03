@@ -1,0 +1,81 @@
+/*---:[ footer styles ]:---*/
+footer {
+	@include span-columns($total-columns);
+    //@include pad($container-padding,$container-padding);
+    //width: 100%;
+    background-color: #ddd;
+    border-top: 1px solid #57AFE5;
+    color: #777;
+    font-family: "League Gothic";
+    background-image: linear-gradient(to bottom, #ccc, #ddd 15%, #f8f8f8 45%);
+    padding: 30px 30px;
+    position: relative;
+    h4 {
+        @include rem(25px);
+        color: #444;
+        margin: 0 0 0.2em;
+        font-weight: normal;
+        text-transform: uppercase;
+    }
+    .copy {
+        color: #777;
+        display: inline-block;
+        font-family: "OpenSansBold";
+        font-size: $footer_fontsize;
+        margin: 0;
+        text-align: right;
+        position: absolute;
+        right: 30px;
+        bottom: 10px;
+    }
+    #go-to-top {
+        @include rem(13px);
+        color: #999;
+        font-family: "OpenSansRegular";
+        line-height: 25px;
+        position: absolute;
+        right: 30px;
+        top: 5px;
+        padding-right: 50px;
+    }
+    .widget {
+        float: left;
+    }
+    .widget_text {
+        width: 33.33333%;
+    }
+    .textwidget {
+        @include rem(12px);
+        font-family: "Arial";
+        line-height: 1.6em;
+    }
+    #text-4 {
+        //padding-left: 20px;
+        padding-right: 60px;
+        text-align: center;
+        h4 {
+            //display: inline-block;
+            font-family: "League Gothic";
+            line-height: 1.15em;
+        }
+        .textwidget {
+            display: inline-block;
+            text-align: left;
+        }
+    }
+    .widget_synved_social_follow {
+        //padding-right: 107px;
+        padding-right: 15px;
+        text-align: center;
+        //width: 66.66667%;
+        width: 33.33333%;
+    }
+}
+	/*---:[ footer link colors ]:---*/
+footer a, footer a:visited {
+	color: #046ca6;
+}
+footer a:hover {
+	color: #046ca6;
+    text-decoration: underline;
+}
