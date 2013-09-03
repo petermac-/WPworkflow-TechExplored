@@ -8,3 +8,4 @@ license.rtf
 .travis.yml
 Guardfile
 bower.json
+.gitignore
