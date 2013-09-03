@@ -146,17 +146,17 @@ Frontend
  */
 function te_scripts() {
 	// CSS first
-	wp_register_style('te_style', get_stylesheet_directory_uri().'/style.css', null, '1.0', 'all' );
-	wp_enqueue_style( 'te_style' );
+	//wp_register_style('te_style', get_stylesheet_directory_uri().'/style.css', null, '1.0', 'all' );
+	//wp_enqueue_style( 'te_style' );
 	// JavaScript
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 	if ( !is_admin() ) {
-		wp_enqueue_script('jquery');
-		wp_enqueue_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, NULL );
-		wp_enqueue_script('customplugins', get_template_directory_uri() . '/assets/js/plugins.min.js', array('jquery'), NULL, true );
-		wp_enqueue_script('customscripts', get_template_directory_uri() . '/assets/js/main.min.js', array('jquery'), NULL, true );
+		//wp_enqueue_script('jquery');
+		//wp_enqueue_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, NULL );
+		//wp_enqueue_script('customplugins', get_template_directory_uri() . '/assets/js/plugins.min.js', array('jquery'), NULL, true );
+		//wp_enqueue_script('customscripts', get_template_directory_uri() . '/assets/js/main.min.js', array('jquery'), NULL, true );
 	}
 }
 
@@ -180,4 +180,66 @@ function te_remove_more_jump_link($link) {
 		$link = substr_replace($link, '', $offset, $end-$offset);
 	}
 	return $link;
+}
+
+function te_custom_excerpt( $length ) {
+	global $post;
+	  $raw_excerpt = $text;
+	  if ( '' == $text ) {
+	    $text = get_the_content('');
+	    $text = strip_shortcodes( $text );
+	    $text = apply_filters('the_content', $text);
+	    $text = str_replace('\]\]\>', ']]&gt;', $text);
+	  }
+	
+	$pos = strpos($text, '<p class="download-box"');
+	if($pos !== FALSE) {
+		$posEnd = strpos($text, '</p>', $pos);
+		$length = $posEnd + 4 - $pos;
+		$text = substr($text, 0, $pos) . substr($text, $posEnd); // remove <p class="download-box"> node
+	}
+
+	$text = strip_tags($text, '<a></a>');
+	$text = preg_replace('/^\s+|\n|\r|\s+$/m', ' ', $text);
+
+	//$title = get_the_title();
+	/*if( strlen($text) > 315 ) {
+		if( strlen($title) > 45 ) {
+			//$excerpt_length = apply_filters('excerpt_length', 43);
+			//$excerpt_more = apply_filters('excerpt_more', '...');
+			$text = substr($text, 0, 315);
+			//$text = wp_trim_words( $text, $excerpt_length, $excerpt_more ); //since wp3.3
+		} else {
+			//$excerpt_length = apply_filters('excerpt_length', 60);
+			//$excerpt_more = apply_filters('excerpt_more', '...');
+			$text = substr($text, 0, 385);
+			//$text = wp_trim_words( $text, $excerpt_length, $excerpt_more ); //since wp3.3
+		}
+	}*/
+	$text = substr($text, 0, 1000);
+	//$text = substr($text, 0, strripos($text, " "));
+	//$text = rtrim($text); //posts that had crayon syntax plugin removed from excerpt had an extra space at the end
+	//$text = $text.'...';
+
+	/*$words = explode(' ', $text, $excerpt_length + 1);
+	  if (count($words)> $excerpt_length) {
+	    array_pop($words);
+	    $text = implode(' ', $words);
+	    $text = $text . $excerpt_more;
+	  } else {
+	    $text = implode(' ', $words);
+	  }
+	return $text;*/
+	return apply_filters('wp_trim_excerpt', $text, $raw_excerpt); //since wp3.3
+}
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+add_filter('get_the_excerpt', 'te_custom_excerpt');
+
+//-------[ add arrow to navigation menu ]-------
+add_filter('wp_nav_menu_items','add_arrow_to_menu', 10, 2);
+function add_arrow_to_menu( $items, $args ) {
+    if( $args->theme_location == 'primary' )
+        return "<div class=\"icon-elloup-dir\"></div>".$items;
+
+    return $items;
 }

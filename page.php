@@ -6,7 +6,7 @@
 
 		<?php get_template_part( 'templates/partials/content', 'page' ); ?>
 		
-		<?php endwhile; endif; ?>
+		<?php endwhile; ?>
 
 	</section> <!-- /content -->
 

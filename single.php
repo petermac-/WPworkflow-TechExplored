@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<section class="content">
+	<section class="content-single">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 

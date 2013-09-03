@@ -30,7 +30,7 @@ function _techexplored_comment( $comment, $args, $depth ) {
 					</div>
 				</div>
 				<?php if ( $comment->comment_approved == '0' ) : ?>
-					<em><?php _e( 'Your comment is awaiting moderation.', '_mbbasetheme' ); ?></em>
+					<em><?php _e( 'Your comment is awaiting moderation.', '_techexplored' ); ?></em>
 					<br />
 				<?php endif; ?>
 

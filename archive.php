@@ -15,16 +15,9 @@
 
 			<?php while (have_posts()) : the_post(); ?>
 				
-				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-				<p class="post_date"><?php the_time('F jS, Y') ?> &#8212; <?php the_tags() ?></p>
-				<div class="entry">
-					<?php if ( has_tag( 'Gallery' ) ) { the_excerpt(); }
-					else { the_content("Continue reading &rarr;"); } ?>
-				</div>
-				<p class="post_meta"><span class="add_comment"><?php comments_popup_link('Post a comment', '1 Comment', '% Comments'); ?></span></p>
-			<?php endwhile; ?>
+				<?php get_template_part( 'templates/partials/content', get_post_format() ); ?>
 
-			<?php get_template_part( 'templates/partials/inc', 'nav' ); ?>
+			<?php endwhile; ?>
 
 		<?php else : ?>
 
@@ -37,6 +30,8 @@
 		<?php endif; ?>
 
 	</section> <!-- /content -->
+
+	<?php get_template_part( 'templates/partials/inc', 'nav' ); ?>
 
 	<?php //if ( is_active_sidebar(1) ) { get_sidebar(); } ?>
 

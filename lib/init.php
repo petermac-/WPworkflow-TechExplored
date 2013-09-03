@@ -40,8 +40,8 @@ function te_setup() {
 	function my_deregister_styles() {
 	  wp_deregister_style( 'adv-spoiler' );
 	  wp_deregister_style( 'jquery-ui-lightness-dialog' );
-	  wp_deregister_style( 'scrollGallery2' );
-	  wp_deregister_style( 'scrollGallery2Design' );
+	  //wp_deregister_style( 'scrollGallery2' );
+	  //wp_deregister_style( 'scrollGallery2Design' );
 	  wp_deregister_style( 'wp-pagenavi' );
 	  wp_deregister_style( 'wp-pagenavi-style' );
 	  //crayon
@@ -272,6 +272,47 @@ function te_setup() {
 	    echo '<a href="'.admin_url("comment.php?action=cdc&dt=spam&c=$id").'">Mark as Spam</a>';
 	  }
 	}
+
+	/**
+	 * Post Time Format
+	 */
+	function te_time_ago() {
+		global $post;
+
+		$date = $post->post_date;
+		$time = get_post_time('G', true, $post);
+		$mytime = time() - $time;
+
+		if($mytime > 0 && $mytime < 7*24*60*60)
+		  $mytimestamp = sprintf(__('%s ago'), human_time_diff($time));
+		else
+		  $mytimestamp = date(get_option('date_format'), strtotime($date));
+		return $mytimestamp;
+	}
+	add_filter('the_time', 'te_time_ago');
+
+	function te_share() {
+		do_action('te_share');
+	}
+	function te_share_content() {
+		$content = apply_filters( 'te_share_content', $content );
+		echo $content;
+	}
+	add_action('te_share', 'te_share_content');
+
+	function te_pagenavi($out) {
+		$before = "<div class='navigation'>";
+		$after = "</div>";
+		if($out != null) {
+			$out = $before . $out . $after;
+		} else if($out == null && is_search()) {
+			//$out = apply_filters( 'te_pagenavi', $out );
+			$out = "<span class=\"current\">1</span>";
+			$out = "<div class='wp-pagenavi'>\n$out\n</div>";
+		}
+		echo $out;
+	}
+	add_action('wp_pagenavi', 'te_pagenavi', $out);
 
 }
 endif; // te_setup
