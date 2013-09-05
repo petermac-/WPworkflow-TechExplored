@@ -4,10 +4,13 @@ footer {
     //@include pad($container-padding,$container-padding);
     //width: 100%;
     background-color: #ddd;
-    border-top: 1px solid #57AFE5;
+    border-top: 1px solid $topbar_color;
     color: #777;
     font-family: "League Gothic";
-    background-image: linear-gradient(to bottom, #ccc, #ddd 15%, #f8f8f8 45%);
+    //background-image: linear-gradient(to bottom, #ccc, #ddd 15%, #f8f8f8 45%);
+    //background-image: linear-gradient(to bottom, #ccc, #ddd 15%, #f8f8f8 45%);
+    height: 208px;
+    margin-top: -208px;
     padding: 30px 30px;
     position: relative;
     h4 {

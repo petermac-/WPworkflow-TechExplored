@@ -98,14 +98,14 @@ module.exports = function(grunt) {
 			}*/
 		},
 		useminPrepare: {
-			html: 'header.html',
+			html: '*.html',
 			options: {
 				dest: '<%= buildDir %>'
 			}
 		},
 		usemin: {
 			//html: ['<%= buildDir %>/{,*/}*.php'],
-			html: ['<%= buildDir %>/header.html'],
+			html: ['<%= buildDir %>/header.html','<%= buildDir %>/footer.html'],
 			//css: ['<%= buildDir %>/{,*/}*.css'],
 			css: ['<%= buildDir %>/{,*/}*.css'],
 			options: {
@@ -196,7 +196,7 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: '',
 					//src: ['*.html', 'views/*.html'],
-					src: ['<%= buildDir %>/header.html'],
+					src: ['<%= buildDir %>/header.html', '<%= buildDir %>/footer.html'],
 					dest: ''
 				}]
 			}

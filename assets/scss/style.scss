@@ -103,9 +103,10 @@ textarea:focus, input:focus, button:focus{
 header {
 	@include span-columns($topbar-cols,$total-columns);
 	@include gradl($topbar_grad);
-    @include box-shadow(black(0.6) 0 0 5px 1px);
 	background-color: $topbar_color;
 	//border-bottom: 1px solid #000;
+    box-shadow: black(0.6) 0 0 3px 0;
+    margin-bottom: -50px;
     z-index: 1;
 	height: $topbar-ht;
 		a {
@@ -396,6 +397,9 @@ li.current-menu-item, li.current-menu-parent {
         text-decoration: none;
     }
     span.current {
+        &:hover {
+            cursor: default;
+        }
         background-color: #FFF;
         margin-right: 5px;
         padding: 10px 15px;

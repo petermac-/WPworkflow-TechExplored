@@ -17,7 +17,6 @@
 	    }
 	  });
 	</script>
-	<?php wp_head(); ?>
 	<?php
 		$dir = get_template_directory_uri() . '/';
 		$head = file($dir . 'header.html');
@@ -31,6 +30,7 @@
 			echo $tmp;
 		}
 	?>
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?> >
@@ -44,7 +44,7 @@
 			</a>
 		</div>
 		<div class="header-search-container">
-			<form class="header-search-form" method="get" action="<?php echo home_url(); ?>">
+			<form class="header-search-form" method="get" action="/search">
 	     <input class="header-search-input" type="text" value="Enter keywords and press enter" name="s" id="s" onfocus="if (this.value == 'Enter keywords and press enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter keywords and press enter';}" />
 	     <button class="search-button" type="submit" name="submit">
 	        <span class="search-button-text"><span class="icon-ellosearch-6"></span></span>
@@ -54,7 +54,7 @@
 	</header>
 
 	<nav class="nav">
-	<span class="header-navicon off-screen-nav-button" data-effeckt-type="effeckt-off-screen-nav-right-overlay">lll</span>
+	<span class="header-navicon">lll</span>
 		<?php wp_nav_menu( array( 'menu_class' => 'navbar-main', 'theme_location' => 'primary' ) ); ?>
 	</nav>
 
