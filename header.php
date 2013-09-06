@@ -46,8 +46,13 @@
 		<?php if(!is_page('Search')) { ?>
 		<div class="header-search-container">
 			<form class="header-search-form" method="get" action="/search">
+<<<<<<< HEAD
 	     <input class="header-search-input" type="text" value="Enter keywords and press enter" name="q" id="s" onfocus="if (this.value == 'Enter keywords and press enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter keywords and press enter';}" />
 	     <button class="search-button" type="submit">
+=======
+	     <input class="header-search-input" type="text" value="Enter keywords and press enter" name="s" id="s" onfocus="if (this.value == 'Enter keywords and press enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter keywords and press enter';}" />
+	     <button class="search-button" type="submit" name="submit">
+>>>>>>> e131a9fbafc8a0beb126d7bd1c55e97498e94799
 	        <span class="search-button-text"><span class="icon-ellosearch-6"></span></span>
 	     </button>
 	   </form>
@@ -56,7 +61,11 @@
 	</header>
 
 	<nav class="nav">
+<<<<<<< HEAD
 		<span class="header-navicon">lll</span>
+=======
+	<span class="header-navicon">lll</span>
+>>>>>>> e131a9fbafc8a0beb126d7bd1c55e97498e94799
 		<?php wp_nav_menu( array( 'menu_class' => 'navbar-main', 'theme_location' => 'primary' ) ); ?>
 	</nav>
 
