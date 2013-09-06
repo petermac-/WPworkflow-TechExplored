@@ -10,17 +10,7 @@
 	
 		<?php else : ?>
 
-			<article>
-
-				<h2>This page is currently under construction.</h2>
-					
-				<p class="post_date">* * *</p>
-					
-				<div class="entry">
-					<p>Sorry, but you are looking for something that isn't here.</p>
-				</div>
-
-			</article>
+			<?php get_template_part( 'templates/partials/content-404' ); ?>
 
 		<?php endif; ?>
 

@@ -79,6 +79,9 @@
   } @else if $prop == "l" {
     letter-spacing: rem2px($val);
     letter-spacing: $val;
+  } @else if $prop == "lh" {
+    line-height: rem2px($val);
+    line-height: $val;
   }
 }
 @mixin padrem($p1, $p2, $p3: 0, $p4: 0) {

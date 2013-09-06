@@ -397,7 +397,7 @@ you can use the generic selector below, but it"s slower:
 }
 .icon-elloup-open-1 {
     @include rem(16px);
-    background-color: #57AFE5;
+    background-color: $topbar_color;
     color: #FFF;
     display: block;
     position: absolute;

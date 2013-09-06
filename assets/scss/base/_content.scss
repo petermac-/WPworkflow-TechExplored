@@ -3,7 +3,10 @@
 	@include span-columns($container-cols + 2);
 	//@include span-columns($container-cols-2col);
     //@include squish($container-padding,$container-padding);
-    padding-top: 30px;
+    min-height: 100%;
+    padding-top: 80px;
+    padding-bottom: 208px;
+    //padding-top: 30px;
 }
 .content {
 	//@include span-columns($content-cols,$container-cols);
@@ -12,7 +15,7 @@
 	//border-left: $content_border;
 	//border-right: $content_border;
     margin: 0 auto;
-    padding: 0 15px 30px;
+    //padding: 0 15px 30px;
     @include breakpoint($contentBreak) {
         //width: $contentBreak - 32;
         width: $contentBreak;
@@ -74,6 +77,7 @@
     }
     .icon-ellopicture-2 {
         @include rem(20px);
+        font-family: "fontello";
         position: absolute;
         right: 1em;
         top: 0.5em;
@@ -169,17 +173,17 @@
         //width: 500px;
         width: $entryP;
         position: relative;
+        h2 {
+            @include rem(22px);
+            margin-top: 0;
+            line-height: 1.1em;
+            margin-bottom: 0.3em;
+        }
     }
     .excerpt-thumb-container, .entry {
         display: inline-block;
         vertical-align: middle;
         white-space: normal;
-    }
-    .entry h2 {
-        @include rem(22px);
-        margin-top: 0;
-        line-height: 1.1em;
-        margin-bottom: 0.3em;
     }
     .meta {
         @include rem($postdate_fz);
@@ -257,6 +261,7 @@
 		width: 100%;
 	}
 	p {
+        color: #666;
 		margin: 0 0 20px 0;
 	}
 	ul, ol {
@@ -373,4 +378,255 @@
 }*/
 .crayon-nums {
 	display: none;
+}
+.content-search {
+    padding: 0 15px 107px;
+    background-color: $body_bg_color;
+    .cse .gsc-search-button input.gsc-search-button-v2, input.gsc-search-button-v2 {
+        box-sizing: content-box;
+        padding: 7px 27px;
+        
+    }
+    .gsc-search-box-tools .gsc-search-box .gsc-input {
+        padding-right: 0;
+    }
+    input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus {
+        border-color: #2F5BB7;
+        background-color: #357AE8;
+        background-image: none;
+    }
+    .cse input.gsc-search-button:hover, input.gsc-search-button:hover {
+        border-color: #2f5bb7;
+        background-color: #357ae8;
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#4d90fe),to(#357ae8));
+        background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
+        background-image: -moz-linear-gradient(top,#4d90fe,#357ae8);
+        background-image: -ms-linear-gradient(top,#4d90fe,#357ae8);
+        background-image: -o-linear-gradient(top,#4d90fe,#357ae8);
+        background-image: linear-gradient(top,#4d90fe,#357ae8);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#4d90fe',EndColorStr='#357ae8');
+    }
+    .gsc-input-box {
+        height: 29px;
+    }
+    .gsib_a {
+        padding: 6px 6px 0;
+    }
+    .gsib_b {
+        padding-top: 2px;
+    }
+    #___gcse_0 {
+        margin: 0 auto;
+        @include breakpoint($contentBreak) {
+            width: $contentBreak;
+        }
+    }
+    .gcsc-branding, .gsc-webResult.gsc-result {
+        width: 99%;
+    }
+    .gsc-control-cse {
+        background-color: $body_bg_color;
+        border: none;
+    }
+    .cse .gsc-control-cse, .gsc-control-cse {
+        padding: 0;
+    }
+    .gsc-webResult.gsc-result, .gsc-results .gsc-imageResult, .gsc-results.gsc-imageResult {
+        background-color: transparent;
+        border: none;
+        &:hover {
+            background-color: transparent;
+            border: none;  
+        }
+    }
+    .gsc-results.gsc-imageResult .gsc-cursor-box {
+        margin-top: 106px;
+    }
+    .gsc-selected-option-container {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .gsc-above-wrapper-area-container {
+        //border-bottom: 1px solid #E9E9E9;
+        box-sizing: content-box;
+        //padding-bottom: 5px;
+    }
+    .gsc-above-wrapper-area {
+        border: none;
+    }
+    .gsc-results {
+        padding-bottom: 0;
+        width: 100%;
+    }
+    .gsc-results .gsc-cursor-box {
+        background-color: #333;
+        box-sizing: border-box;
+        margin: 30px 0 0;
+        padding: 30px 20px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+    .gsc-results .gsc-cursor {
+        background-color: transparent;
+        box-sizing: border-box;
+        display: inline;
+    }
+    .gsc-results .gsc-cursor-box .gsc-cursor-page {
+        @include rem(15px);
+        background-color: transparent;
+        color: #fff;
+        font-family: "OpenSansSemibold";
+        font-weight: normal;
+        margin-right: 5px;
+        padding: 10px 15px;
+        box-sizing: border-box;
+        &:hover {
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    .gsc-refinementsArea {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 4px;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+    .gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+        border: none; 
+        background-color: #fff;
+        color: #000;
+        &:hover {
+            cursor: default;
+        }
+    }
+    .gsc-tabHeader {
+        border: none;
+    }
+    .gsc-tabHeader.gsc-tabhActive, .gsc-tabHeader.gsc-tabhInactive {
+        background-color: transparent;
+        border-width: 1px 1px 0 1px;
+        border-style: solid;
+        border-color: #e9e9e9;
+        &:focus {
+            outline: none;
+        }
+    }
+    .gsc-tabHeader {
+        &:last-child {
+            border-left: 1px solid transparent;
+        }
+        box-sizing: content-box;
+    }
+    .gsc-tabHeader.gsc-tabhActive {
+        border-bottom-width: 1px;
+        border-bottom-color: $body_bg_color;
+        height: 36px;
+        margin-bottom: -1px;
+        position: relative;
+        z-index: 1;
+        &:hover {
+            cursor: default;
+        }
+    }
+    .gsc-tabHeader.gsc-tabhInactive {
+        //background-color: #ddd;
+        background-color: transparent;
+        border-color: transparent;
+    }
+    .gsc-tabsArea {
+        @include rem(14px);
+        border: none;
+        height: 100%;
+        margin-top: 20px;
+    }
+    .gsc-tabsArea > .gsc-tabHeader {
+        height: 35px;
+        line-height: 35px;
+    }
+    .gsc-control-cse .gsc-option-selector {
+        background-image: url("//ssl.gstatic.com/ui/v1/zippy/arrow_down.png");
+    }
+    .gsc-imageResult {
+        padding: 0;
+    }
+    .gs-imageResult {
+        position: relative;
+        min-width: 100%;
+        width: 100%;
+        &:hover .gs-text-box {
+            display: block;
+        }
+    }
+    .gs-imageResult .gs-text-box {
+        @include rem(11px);
+        background: #333;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0 3px;
+        white-space: nowrap;
+        height: 14px;
+        line-height: 14px;
+        display: none;
+    }
+    .gsc-imageResult .gs-imageResult .gs-text-box .gs-ellipsis {
+        display: inline;
+        vertical-align: top;
+    }
+    .gs-imageResult .gs-image-box {
+        min-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+    .gs-imageResult img {
+        min-width: 160px;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 28px;
+    }
+    .gsc-imageResult .gs-imageResult .gs-text-box .gs-snippet {
+        display: none;
+    }
+    .gsc-imageResult .gs-imageResult .gs-text-box .gs-visibleUrl.gsc-url-top {
+        display: none;
+    }
+    .gs-imageResult-popup .gs-image-popup-box .gs-text-box {
+        padding: 0 2px;
+    }
+    .gs-result a.gs-visibleUrl, .gs-result .gs-visibleUrl {
+        padding-bottom: 0;
+    }
+    .gs-imageResult .gs-text-box {
+        text-align: left;
+    }
+    .gsc-imageResult .gs-imageResult .gs-text-box .gs-size.gs-ellipsis {
+        &:after {
+            content: " - ";
+            display: inline;
+            padding-right: 3px;
+            position: relative;
+        }
+    }
+    .gs-imageResult .gs-text-box div.gs-visibleUrl,
+    .gs-imageResult .gs-text-box .gs-snippet,
+    .gs-imageResult .gs-fileFormatType,
+    .gs-imageResult .gs-size {
+        color: #fff;
+    }
+    .gs-webResult .gs-snippet,
+    .gs-webResult .gs-fileFormatType {
+        color: #666;
+    }
 }
