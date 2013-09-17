@@ -73,8 +73,10 @@ module.exports = function(grunt) {
 				files: {
 					src: [
 						'<%= buildDir %>/<%= assetsDir %>/<%= jsDir %>/source/{,*/}*.js',
-						'<%= buildDir %>/{,*/}*.css',
-						'<%= buildDir %>/<%= assetsDir %>/<%= imgDir %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+						//'<%= buildDir %>/{,*/}*.css',
+						'<%= buildDir %>/style.min.css',
+						'<%= buildDir %>/<%= assetsDir %>/<%= imgDir %>/*.{png,jpg,jpeg,gif,webp,svg}'
+						//'<%= buildDir %>/<%= assetsDir %>/<%= imgDir %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
 						//'<%= buildDir %>/<%= fontsDir %>/*'
 					]
 				}
@@ -171,6 +173,9 @@ module.exports = function(grunt) {
 			// By default, your `index.html` <!-- Usemin Block --> will take care of
 			// minification. This option is pre-configured if you do not wish to use
 			// Usemin blocks.
+			options: {
+				//banner: '/* Theme Name: Tech Explored, Theme URI: http://techexplored.com, Author: Peter MacDonald, Author URI: http://techexplored.com/, Description:	Tech Explored Theme, Version: 2.0, License: GNU General Public License, License URI: license.txt */'
+			},
 		  minify: {
 	    	expand: true,
 	     	cwd: '<%= buildDir %>/',
@@ -210,25 +215,33 @@ module.exports = function(grunt) {
 					cwd: '',
 					dest: '<%= buildDir %>',
 					src: [
-						'*.{php,html,rtf,ico,png,txt}',
+						'*.{php,html,rtf,ico,png,jpg,jpeg}',
 						'.htaccess',
 						'bower_components/**/*',
 						'<%= assetsDir %>/<%= imgDir %>/{,*/}*.{gif,webp}',
 						'<%= assetsDir %>/<%= fontsDir %>/fontello*',
 						'<%= assetsDir %>/<%= fontsDir %>/leaguegothic-regular*',
 						'<%= assetsDir %>/<%= fontsDir %>/Lato-Bol*',
+						'<%= assetsDir %>/<%= fontsDir %>/PTF55F-webfont*',
+						'<%= assetsDir %>/<%= fontsDir %>/OpenSans-Semibold-webfont*',
+						'<%= assetsDir %>/<%= fontsDir %>/OpenSans-Bold-webfont*',
+						'<%= assetsDir %>/<%= fontsDir %>/PTN57F-webfont*',
+						'<%= assetsDir %>/<%= fontsDir %>/SourceSansPro-Regular-webfont*',
 						'<%= assetsDir %>/<%= jsDir %>/vendor/*',
 						//'<%= assetsDir %>/<%= jsDir %>/source/plugins.js',
 						'templates/**/*',
 						'lib/*'
 					]
-				}, {
+				}, {/*
 					expand: true,
-					cwd: '.tmp/images',
-					dest: '<%= buildDir %>/<%= imgDir %>',
+					flatten: true,
+					cwd: '',
+					dest: '<%= buildDir %>',
 					src: [
-						'generated/*'
+						'<%= assetsDir %>/wordpress/scss/wordpressThemeBlock.css'
 					]
+				}, {*/
+					'<%= buildDir %>/style.css': ['<%= assetsDir %>/scss/wordpressThemeBlock.css']
 				}]
 			}
 		},
@@ -295,6 +308,11 @@ module.exports = function(grunt) {
 		'autoprefixer',
 		'cssmin',
 		'uglify:dist'
+	]);
+
+	grunt.registerTask('css', [
+		'autoprefixer',
+		'cssmin'
 	]);
 
 	grunt.registerTask('watchnow', ['watch']);

@@ -13,14 +13,16 @@ javascripts_dir = "assets/js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
-output_style = :expanded
-environment = :development
+#output_style = :expanded
+#environment = :development
+output_style = :compressed
+environment = :production
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
 relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
-line_comments = false
+#line_comments = false
 
 
 # If you prefer the indented syntax, you might want to regenerate this
@@ -29,6 +31,6 @@ line_comments = false
 # and then run:
 # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
 
-sass_options = { :debug_info => true }
+#sass_options = { :debug_info => true }
 #sass_options = {:sourcemap => true,}
 #enable_sourcemaps = true

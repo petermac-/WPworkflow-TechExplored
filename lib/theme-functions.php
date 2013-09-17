@@ -37,10 +37,21 @@ function te_widgets_init() {
 		'after_title'   => '</h4>'
 	));
 
-	// Footer
+	// Footer Left
 	register_sidebar(array(
-		'name'          => __( 'Footer', 'te' ),
-		'id'            => 'footer-widgets',
+		'name'          => __( 'Footer Left', 'te' ),
+		'id'            => 'footer-widgets-left',
+		'description'   => __( 'Widgets for Footer.', 'te' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>'
+	));
+
+	// Footer Right
+	register_sidebar(array(
+		'name'          => __( 'Footer Right', 'te' ),
+		'id'            => 'footer-widgets-right',
 		'description'   => __( 'Widgets for Footer.', 'te' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -124,8 +135,13 @@ function te_remove_menu_pages() {
  */
 function te_imagelink_setup() {
 	$image_set = get_option( 'image_default_link_type' );
-	if ($image_set !== 'none') {
-		update_option('image_default_link_type', 'none');
+	$image_set2 = get_option( 'image_default_size' );
+	
+	if ($image_set !== 'file') {
+		update_option('image_default_link_type', 'file');
+	}
+	if($image_set2 !== 'full') {
+		update_option('image_default_size', 'full');
 	}
 }
 
@@ -157,6 +173,7 @@ function te_scripts() {
 		//wp_enqueue_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, NULL );
 		//wp_enqueue_script('customplugins', get_template_directory_uri() . '/assets/js/plugins.min.js', array('jquery'), NULL, true );
 		//wp_enqueue_script('customscripts', get_template_directory_uri() . '/assets/js/main.min.js', array('jquery'), NULL, true );
+		//wp_enqueue_script('customscripts', get_template_directory_uri() . '/assets/js/vendor/jquery.easing.1.3.js', array('jquery'), NULL, true );
 	}
 }
 
@@ -182,6 +199,16 @@ function te_remove_more_jump_link($link) {
 	return $link;
 }
 
+function te_custom_gallery_format($content) {
+	if(has_tag('Gallery')) {
+		remove_filter( 'the_content', 'wpautop' );
+		$content = str_replace('<p></p>','',$content);
+		$content = str_replace('<a','<a data-effect="mfp-zoom-in"',$content);
+	}
+	return $content;
+}
+add_filter('the_content','te_custom_gallery_format',0);
+
 function te_custom_excerpt( $length ) {
 	global $post;
 	  $raw_excerpt = $text;
@@ -199,6 +226,14 @@ function te_custom_excerpt( $length ) {
 		$text = substr($text, 0, $pos) . substr($text, $posEnd); // remove <p class="download-box"> node
 	}
 
+	$pos = strpos($text, '<script>');
+	if($pos !== FALSE) {
+		$posEnd = strpos($text, '</script>', $pos);
+		$length = $posEnd + 9 - $pos;
+		$text = substr($text, 0, $pos) . substr($text, $posEnd); // remove <script>*</script>
+	}
+
+	//$text = preg_replace('~<script>*</script>~', '', $text);
 	$text = strip_tags($text, '<a></a>');
 	$text = preg_replace('/^\s+|\n|\r|\s+$/m', ' ', $text);
 
@@ -216,7 +251,7 @@ function te_custom_excerpt( $length ) {
 			//$text = wp_trim_words( $text, $excerpt_length, $excerpt_more ); //since wp3.3
 		}
 	}*/
-	$text = substr($text, 0, 1000);
+	$text = substr($text, 0, 650);
 	//$text = substr($text, 0, strripos($text, " "));
 	//$text = rtrim($text); //posts that had crayon syntax plugin removed from excerpt had an extra space at the end
 	//$text = $text.'...';
@@ -243,3 +278,36 @@ function add_arrow_to_menu( $items, $args ) {
 
     return $items;
 }
+
+//-------[ check if post body contains image ]-------
+function post_image() {
+     do_action('post_image');
+}
+function post_has_image($content) {
+	//$content = $post->post_content;
+	//$searchimages = '~<img [^>]* />~';
+	$searchnestedimages = '~<a [^>]*><img [^>]* /></a>~';
+	/*Run preg_match_all to grab all the images and save the results in $pics*/
+
+	//preg_match_all( $searchimages, $content, $pics );
+	preg_match_all( $searchnestedimages, $content, $pics );
+
+	// Check to see if we have at least 1 image
+	$iNumberOfPics = count($pics[0]);
+
+	if ( $iNumberOfPics > 0 ) {
+	     // Your post have one or more images.
+		$content .= '<script src="' . get_stylesheet_directory_uri() . '/assets/js/vendor/magnificpopup.js"></script>';
+		$content .= "<script> (function($) { $('.entry').magnificPopup({ delegate: 'a', type: 'image', removalDelay: 500, callbacks: { beforeOpen: function() { this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim'); this.st.mainClass = this.st.el.attr('data-effect'); } }, gallery: { enabled: true, preload: [0,2], navigateByImgClick: true, arrowMarkup: '<button title=\"%title%\" type=\"button\" class=\"mfp-arrow mfp-arrow-%dir%\"></button>', tPrev: 'Previous (Left arrow key)', tNext: 'Next (Right arrow key)', tCounter: '<span class=\"mfp-counter\">%curr% of %total%</span>' }, closeOnContentClick: true, midClick: true }); })(jQuery); </script>";
+		
+		for($i=0; $i < $iNumberOfPics; $i++) {
+			//$content = $content . $imgs[0][0];
+			$tmp = str_replace('<a','<a data-effect="mfp-zoom-in"',$pics[0][$i]);
+			$content = str_replace($pics[0][$i],$tmp,$content);
+			//$content = str_replace('<a','<a data-effect="mfp-zoom-in"',$content);
+		}
+	}
+	return $content;
+}
+//add_action('post_image', 'post_has_image');
+add_filter('the_content','post_has_image',10);

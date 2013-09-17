@@ -38,43 +38,86 @@ function te_setup() {
 	//-------[ remove CSS from specified plugins ]-------
 	add_action( 'wp_print_styles', 'my_deregister_styles', 100 );
 	function my_deregister_styles() {
-	  wp_deregister_style( 'adv-spoiler' );
-	  wp_deregister_style( 'jquery-ui-lightness-dialog' );
-	  //wp_deregister_style( 'scrollGallery2' );
-	  //wp_deregister_style( 'scrollGallery2Design' );
-	  wp_deregister_style( 'wp-pagenavi' );
-	  wp_deregister_style( 'wp-pagenavi-style' );
-	  //crayon
-	  wp_deregister_style( 'crayon' );
-	  wp_deregister_style( 'crayon-global' );
-	  wp_deregister_style( 'crayon_style' );
-	  wp_deregister_style( 'crayon_global_style' );
-	  wp_deregister_style( 'crayon-font-consolas' );
-	  wp_deregister_style( 'crayon-theme-mirc-dark' );
-	  //wp-slimbox2
-	  wp_deregister_style( 'slimbox2' );
-	  wp_deregister_style( 'slimbox2-RTL' );
-	  wp_deregister_style( 'farbtastic' );
-	  //nggallery.php
-	  wp_deregister_style( 'NextGEN' );
-	  wp_deregister_style( 'thickbox' );
-	  wp_deregister_style( 'shutter' );
+		if(!is_admin()){
+		  wp_deregister_style( 'adv-spoiler' );
+		  wp_deregister_style( 'jquery-ui-lightness-dialog' );
+		  //wp_deregister_style( 'scrollGallery2' );
+		  //wp_deregister_style( 'scrollGallery2Design' );
+		  wp_deregister_style( 'wp-pagenavi' );
+		  wp_deregister_style( 'wp-pagenavi-style' );
+		  //crayon
+		  wp_dequeue_style( 'crayon' );
+		  wp_dequeue_style( 'crayon-global' );
+		  wp_dequeue_style( 'crayon_style' );
+		  wp_dequeue_style( 'crayon_global_style' );
+		  wp_dequeue_style( 'crayon-font-consolas' );
+		  wp_dequeue_style( 'crayon-theme-mirc-dark' );
+		  wp_dequeue_style( 'crayon-theme-tomorrow-night' );
+		  wp_dequeue_style( 'crayon-font-courier-new' );
+		  //wp-slimbox2
+		  wp_deregister_style( 'slimbox2' );
+		  wp_deregister_style( 'slimbox2-RTL' );
+		  wp_deregister_style( 'farbtastic' );
+		  //nggallery.php
+		  wp_deregister_style( 'NextGEN' );
+		  wp_deregister_style( 'thickbox' );
+		  wp_deregister_style( 'shutter' );
+		  //photo-dropper
+		  wp_dequeue_style( 'pdrp_styles' );
+		}
 	}
 
 	add_action( 'wp_print_styles', 'my_deregister_scripts', 100 );
 	function my_deregister_scripts() {
-	  //wp_deregister_script( 'adv-spoiler' );
-	  //wp_deregister_script( 'slimbox2_autoload' );
-	  //wp_deregister_script( 'slimbox2' );
-	  //wp_deregister_script( 'thickbox' );
-	  wp_deregister_script( 'quicktags' );
-	  wp_deregister_script( 'gsc_dialog' );
+		if(!is_admin()){
+		  wp_deregister_script( 'adv-spoiler' );
+		  //wp_deregister_script( 'slimbox2_autoload' );
+		  //wp_deregister_script( 'slimbox2' );
+		  //wp_deregister_script( 'thickbox' );
+		  wp_deregister_script( 'quicktags' );
+		  wp_deregister_script( 'gsc_dialog' );
+		  //NextGen Gallery
+		  wp_deregister_script( 'photocrati_ajax' );
+		}
 	}
 
 	//wp_register_script('slimbox2', WP_PLUGIN_URL.'/wp-slimbox2/javascript/slimbox2.js',array('jquery'), '2.04');
 
+	add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate' );
+	function dequeue_jquery_migrate( &$scripts){
+		if(!is_admin()){
+			$scripts->remove( 'jquery');
+			$scripts->add( 'jquery', false, array( 'jquery-core' ), '1.10.2' );
+		}
+	}
+
+	//-------[ added to deregister jQuery if not in the admin dashboard ]-------
+	if(!is_admin()) {
+		wp_deregister_script( 'jquery' );
+	}
+
+	//-------[ disable built in search ]-------
+	function fb_filter_query( $query, $error = true ) {
+		if ( is_search() ) {
+			$query->is_search = false;
+			$query->query_vars[s] = false;
+			$query->query[s] = false;
+
+			// to error
+			if ( $error == true ) {
+				$query->is_404 = true;
+			}
+		}
+	}
+
+	add_action( 'parse_query', 'fb_filter_query' );
+	add_filter( 'get_search_form', create_function( '$a', "return null;" ) );
+
+	//-------[ disable HTML in comments ]-------
+	add_filter( 'pre_comment_content', 'wp_specialchars' );
+
 	//-------[ remove autop in admin dash ]-------
-	if (is_admin()) {
+	if(is_admin()) {
 		remove_filter( 'the_content', 'wpautop' );
 		remove_filter( 'the_excerpt', 'wpautop' );
 	}
@@ -167,22 +210,21 @@ function te_setup() {
 
 	//-------[ stop tinymce from removing line breaks and BR tags ]-------
 	function cbnet_tinymce_config( $init ) {
+		// Don't remove line breaks
+		$init['remove_linebreaks'] = false;
+		// Convert newline characters to BR tags
+		$init['convert_newlines_to_brs'] = true;
+		// Do not remove redundant BR tags
+		$init['remove_redundant_brs'] = false;
 
-	// Don't remove line breaks
-	$init['remove_linebreaks'] = false;
-	// Convert newline characters to BR tags
-	$init['convert_newlines_to_brs'] = true;
-	// Do not remove redundant BR tags
-	$init['remove_redundant_brs'] = false;
-
-	// Pass $init back to WordPress
-	return $init;
+		// Pass $init back to WordPress
+		return $init;
 	}
-	add_filter('tiny_mce_before_init', 'cbnet_tinymce_config');
+	//add_filter('tiny_mce_before_init', 'cbnet_tinymce_config');
 
 	// Register menus
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'techexplored' ),
+		'primary' => __( 'Primary Menu', 'techexplored' )
 	) );
 
 	// Register Widget Areas

@@ -1,5 +1,11 @@
 /*---:[ footer styles ]:---*/
-footer {
+.home .footer {
+    background-color: #fff;
+    @include breakpoint(800px) {
+        background-color: #ddd;
+    }
+}
+.footer {
 	@include span-columns($total-columns);
     //@include pad($container-padding,$container-padding);
     //width: 100%;
@@ -10,10 +16,11 @@ footer {
     //background-image: linear-gradient(to bottom, #ccc, #ddd 15%, #f8f8f8 45%);
     //background-image: linear-gradient(to bottom, #ccc, #ddd 15%, #f8f8f8 45%);
     height: 208px;
+    min-width: $minWidth;
     margin-top: -208px;
-    padding: 30px 30px;
+    padding: 30px 30px 10px;
     position: relative;
-    z-index: 1;
+    z-index: 5;
     h4 {
         @include rem(25px);
         color: #444;
@@ -29,57 +36,107 @@ footer {
         margin: 0;
         text-align: right;
         position: absolute;
-        right: 30px;
+        //right: auto;
+        left: 0;
         bottom: 10px;
+        width: 516px;
+        @include breakpoint(576px) {
+          left: auto;
+          right: 48px;
+        }
     }
     #go-to-top {
-        @include rem(13px);
-        color: #999;
-        font-family: "OpenSansRegular";
+        @include rem(15px);
+        color: #555;
+        font-family: "SourceSansProRegular";
         line-height: 25px;
         position: absolute;
         right: 30px;
         top: 5px;
         padding-right: 50px;
+        @include breakpoint(800px) {
+            color: #999;
+        }
     }
     .widget {
-        float: left;
-    }
-    .widget_text {
-        width: 33.33333%;
+        //float: left;
     }
     .textwidget {
         @include rem(12px);
         font-family: "Arial";
         line-height: 1.6em;
     }
-    #text-4 {
-        //padding-left: 20px;
-        padding-right: 60px;
-        text-align: center;
+    .widget_text:first-child {
+        float: left;
+        min-width: 354px;
+        position: relative;
+        @include breakpoint(1195px) {
+            width: 33.33333%;
+        }
+        h4, .textwidget {
+            margin: 0 auto;
+            width: 354px;
+        }
+    }
+    .widget_text:nth-child(3) {
+        display: none;
+        position: absolute;
+        margin: auto;
+        left: 384px;
+        right: 0;
+        top: 100px;
         h4 {
+            @include rem(12px);
             //display: inline-block;
-            font-family: "League Gothic";
+            //font-family: "League Gothic";
+            text-transform: none;
+            font-family: Arial;
+            font-weight: bold;
             line-height: 1.15em;
         }
         .textwidget {
+            @include rem(11px);
             display: inline-block;
             text-align: left;
         }
+        @include breakpoint(718px) {
+            position: relative;
+            left: auto;
+            right: auto;
+            top: 80px;
+            display: block;
+            //padding-right: 60px;
+            text-align: right;
+            float: right;
+            width: 33.33333%;
+            //margin-top: 80px;
+        }
     }
-    .widget_synved_social_follow {
-        //padding-right: 107px;
-        padding-right: 15px;
+    .widget_synved_social_follow, .widget_text:nth-child(2) {
+        position: absolute;
+        margin: auto;
+        left: 384px;
+        right: 164px;
+        padding-bottom: 10px;
+        min-width: 141px;
         text-align: center;
-        //width: 66.66667%;
-        width: 33.33333%;
+        z-index: 0;
+        /*@include breakpoint(1165px) {
+            left: 30px;
+            padding-right: 15px;
+        }*/
     }
-}
-	/*---:[ footer link colors ]:---*/
-footer a, footer a:visited {
-	color: #046ca6;
-}
-footer a:hover {
-	color: #046ca6;
-    text-decoration: underline;
+    .widget_text:first-child, .widget_text:nth-child(3), .widget_text:nth-child(2) {
+        z-index: 1;
+    }
+    .widget_text:first-child, .widget_text:nth-child(3), .widget_text:nth-child(2), .widget_synved_social_follow {
+        margin-top: 10px; 
+    }
+    a, a:visited {
+        color: #046ca6;
+    }
+    a:hover {
+        color: #046ca6;
+        text-decoration: underline;
+    }
 }

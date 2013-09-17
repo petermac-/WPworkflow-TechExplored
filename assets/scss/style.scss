@@ -15,18 +15,8 @@ $experimental-support-for-svg: true;
 /* Shame */
 @import "partials/shame";
 
-/*
-Theme Name:		Tech Explored 2.0
-Theme URI:		http://techexplored.com
-Author: Peter MacDonald
-Author URI: http://techexplored.com/
-Description:	Tech Explored Theme
-Version:		2.0
-License: GNU General Public License
-License URI: license.txt
-*/
-
-@import "global/testfonts";
+//@import "global/testfonts";
+@import "global/distfonts";
 @import "global/typography";
 @import "base/content";
 @import "base/content-sidebar";
@@ -38,6 +28,8 @@ License URI: license.txt
 @import "modules/_effeckt.scss";
 @import "partials/alertify/_alertify.core.scss";
 @import "partials/alertify/_alertify.default.scss";
+@import "partials/_progressbars.scss";
+@import "modules/_magnific-popup.scss";
 
 %center {
 	margin: 0 auto;
@@ -96,6 +88,7 @@ embed,
 object,
 video {
   max-width: 100%;
+  height: auto;
 }
 textarea:focus, input:focus, button:focus{
     outline: 0;
@@ -105,10 +98,12 @@ header {
 	@include gradl($topbar_grad);
 	background-color: $topbar_color;
 	//border-bottom: 1px solid #000;
-    box-shadow: black(0.6) 0 0 3px 0;
+    box-shadow: black(0.65) 0 1px 4px 0;
     margin-bottom: -50px;
+    min-width: $minWidth;
     position: relative;
-    z-index: 1;
+    text-align: center;
+    z-index: 5;
 	height: $topbar-ht;
 		a {
 		display: block;
@@ -142,10 +137,9 @@ header {
 	//@include span-columns($logo-cols,$topbar-cols);
 	//border-right: $nav_border;
 	cursor: pointer;
-    display: inline-block;
+    float: left;
 	height: 100%;
     margin-left: 20px;
-	position: relative;
 	&:hover a {
 		//border-top: 2px solid black(0.2);
 	}
@@ -168,6 +162,18 @@ header {
     width: 400px;
 	max-width: 90%;
 }
+.header-twitter-follow {
+  display: inline-block;
+  width: 141px;
+  height: 20px;
+  margin-top: 15px;
+  a {
+    color: transparent;
+  }
+}
+.header-facebook-follow {
+  display: inline-block;
+}
 
 /*---:[ nav menu styles ]:---*/
 .nav {
@@ -185,7 +191,6 @@ header {
         right: 5px;
     }
     &:hover .navbar-main {
-        display: block;
         right: 0px;
     }
 }
@@ -194,10 +199,11 @@ header {
 	@extend %mp0;
     background-color: #fff;
     box-shadow: black(0.2) 0 0 1px 2px;
-    display: none;
+    display: block;
     position: absolute;
     top: 36px;
-    right: -10px;
+    right: -300px;
+    //right: -10px;
     font-family: "SourceSansProRegular";
     padding: 0.5em 0;
     text-transform: uppercase;
@@ -307,21 +313,29 @@ li.current-menu-item, li.current-menu-parent {
 .header-search-container {
     //background-color: $search_bg_color;
     //display: inline-block;
+    display: none;
     height: 28px;
 	width: 305px;
-    margin: 7px 60px 0 0;
+    margin: 11px 60px 0 0;
     float: right;
+    @include breakpoint(800px) {
+        display: block;
+    }
 }
 .header-search-form {
 	font-family: "Arial";
 }
 .header-search-input {
+    box-shadow: inset 0 0 0 1px #f9f9f9, inset 0 1px 0 0 #e5e5e5, 0 -1px 0 0 lighten(#232d33,10%);
 	color: $searchbt_textc;
-	border: 1px solid;
+	//border: 1px solid;
+    border: none;
+    border-radius: 2px;
 	border-color: #bfbfbf #ddd #ddd #bfbfbf;
 	padding-left: 10px;
 	height: 28px;
 	width: 300px;
+    vertical-align: top;
 	&:focus {
         outline: none;
         //background: #fff;
@@ -355,12 +369,12 @@ li.current-menu-item, li.current-menu-parent {
 	display: inline-block;
 	//font-weight: bold;
 	text-align: center;
-	margin: 10px 0 0 -25px;
+	margin: 6px 0 0 -28px;
 	padding: 0;
     overflow: visible;
     position: relative;
     span {
-        font-size: 12px;
+        @include rem(13px);
     }
 	&:hover {
         //@include gradl($searchbt_hover_grad);
@@ -385,9 +399,9 @@ li.current-menu-item, li.current-menu-parent {
 }
 .wp-pagenavi {
     @include rem(15px);
-    padding: 10px 20px;
+    padding: 10px 30px;
     text-align: center;
-    a, span.pages, span.extend {
+    a, span.pages {
         color: #FFF;
         margin-right: 5px;
         padding: 10px 15px;
@@ -405,4 +419,92 @@ li.current-menu-item, li.current-menu-parent {
         margin-right: 5px;
         padding: 10px 15px;
     }
+    span.extend {
+      color: #FFF;
+      margin-right: 5px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+}
+.gallery {
+  width: 100%;
+  .entry {
+    text-align: center;
+    h1 {
+      //text-align: left;
+    }
+    a {
+      display: inline-block;
+    }
+    img {
+      max-width: 400px;
+    }
+  }
+}
+.page-404 {
+  text-align: center;
+}
+.page-404-text {
+  @include rem(26px);
+  border-radius: 4px;
+  color: #fff;
+  background-color: #666;
+  margin-bottom: 20px;
+  padding: 10px;
+  vertical-align: top;
+}
+.page-404-search-container {
+  padding: 5px 0;
+}
+.page-404-search-form {
+  font-size: 0;
+  width: 100%;
+  position: relative;
+}
+.page-404-search-input {
+  @include rem(20px);
+  position: absolute;
+  left: 0;
+  right: 69px;
+  border-radius: 6px 0 0 6px;
+  height: 45px;
+  margin: 0px;
+  outline: none;
+  background-color: rgb(255, 255, 255);
+  //box-shadow: inset 0 0 0 1px #f9f9f9, inset 0 1px 0 0 #e5e5e5, 0 -1px 0 0 lighten(#232d33,10%);
+  color: $searchbt_textc;
+  border: 1px solid;
+  border-color: #bfbfbf #ddd #ddd #bfbfbf;
+  padding: 0 10px;
+  vertical-align: top;
+  &:focus {
+        outline: none;
+        //background: #fff;
+        //box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+  }
+  &:hover { outline: none; }
+}
+.page-404-search-button {
+  position: absolute;
+  right: 0;
+  background-image: -webkit-linear-gradient(top, #4d90fe, #357ae8);
+  border: 1px solid;
+  border-color: #2F5BB7;
+  background-image: none;
+  filter: none;
+  background-color: #357AE8;
+  box-sizing: content-box;
+  font-size: 11px;
+  font-weight: bold;
+  color: #fff;
+  min-width: 13px;
+  width: 13px;
+  height: 13px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.page-404-search-button-text {
+  
 }

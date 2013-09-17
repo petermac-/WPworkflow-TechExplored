@@ -29,7 +29,7 @@
 			
 			<div class="ellipsis"><?php the_excerpt(); ?></div>
 
-			<a href="<?php the_permalink(); ?>">
+			<a class="meta-link" href="<?php the_permalink(); ?>">
 				<?php get_template_part( 'templates/partials/inc', 'meta' ); ?>
 			</a>
 		

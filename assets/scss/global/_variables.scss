@@ -18,6 +18,7 @@ $container-cols-2col: $total-columns - 2 * $nav-cols-2col;
 
 $footer-cols: $content-cols;
 
+$minWidth: 540px;
 
 /* Breakpoints */
 //$contentBreak: 972px;
@@ -50,7 +51,7 @@ $zCommentPic: 2;
 /* Colors */
 $topbar_color: #232d33;
 //$topbar_color: #174058;
-$body_bg_color: #f6f6f6;
+$body_bg_color: #fff;
 $content_bg_color: $body_bg_color;
 $content_sidebar_color: darken($body_bg_color,0%);
 $recentposts_bg_color: black(0.8);

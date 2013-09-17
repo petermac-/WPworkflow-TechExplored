@@ -302,6 +302,15 @@ h4 {
 	@include rem($h4);
     font-weight: bold;
 }
+.entry {
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+  }
+  h2 {
+    margin-bottom: 0.4em;
+  }
+}
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
     font-family: "icomoon";
