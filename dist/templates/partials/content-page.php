@@ -9,7 +9,7 @@
 
 <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
-	<?php get_template_part( 'templates/partials/inc', 'featured' ); ?>
+	<?php //get_template_part( 'templates/partials/inc', 'featured' ); ?>
 
 	<h1><?php the_title(); ?></h1>
 
