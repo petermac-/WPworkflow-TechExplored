@@ -778,7 +778,19 @@ you can use the generic selector below, but it"s slower:
     .content {
       width: 912px; } }
 
+.page-gallery {
+  text-align: center;
+  float: left;
+  width: 100%; }
+
+.post-img-link {
+  display: inline-block;
+  margin-right: 10px; }
+  .post-img-link img {
+    max-width: 350px; }
+
 .single-post .post-meta-container {
+  background-color: black;
   background-image: url("assets/images/grunge.jpg");
   background-repeat: repeat;
   border-bottom: 1px solid #ddd;
@@ -791,17 +803,28 @@ you can use the generic selector below, but it"s slower:
     .single-post .post-meta-container {
       padding-top: 30px; } }
 .single-post .post-meta-content {
+  margin-top: 7px;
   width: 100%;
   text-align: center;
-  height: 37px;
-  line-height: 37px;
+  height: 30px;
   color: #555;
   overflow: hidden;
   position: relative; }
 .single-post .featured-img-container {
-  display: inline-block; }
+  position: relative;
+  max-height: 442px; }
+  .single-post .featured-img-container:before {
+    content: "";
+    display: block;
+    padding-top: 58.333%; }
   .single-post .featured-img-container img {
     box-shadow: rgba(0, 0, 0, 0.7) 0 0 10px; }
+.single-post .featured-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0; }
 .single-post .meta {
   font-size: 16px;
   font-size: 1rem;
@@ -812,16 +835,15 @@ you can use the generic selector below, but it"s slower:
   font-family: "LatoBold";
   vertical-align: middle; }
 .single-post .post-share {
-  font-size: 14px;
-  font-size: 0.875rem;
-  margin-top: 7px;
-  font-family: "LatoRegular"; }
+  font-size: 0; }
   .single-post .post-share .twitter-share-button {
     width: 79px !important; }
   .single-post .post-share span {
     display: inline-block;
-    height: 37px;
+    height: 30px;
     vertical-align: top; }
+    .single-post .post-share span:last-child {
+      margin-right: 0; }
   .single-post .post-share iframe, .single-post .post-share div {
     vertical-align: top !important; }
 .single-post .post-share-facebook, .single-post .post-share-twitter, .single-post .post-share-google {
@@ -834,14 +856,15 @@ you can use the generic selector below, but it"s slower:
   .single-post .post-share-twitter .btn {
     color: transparent !important; }
 .single-post .post-share-google {
-  width: 86px; }
+  width: 60px; }
 .single-post .post {
   padding-bottom: 40px;
   position: relative;
   text-align: center; }
 .single-post #disqus_thread, .single-post .post-meta-content {
   padding: 0 15px;
-  margin: 0 auto; }
+  margin-left: auto;
+  margin-right: auto; }
   @media (min-width: 832px) {
     .single-post #disqus_thread, .single-post .post-meta-content {
       width: 800px; } }
@@ -1477,12 +1500,11 @@ you can use the generic selector below, but it"s slower:
 .post-navigation-title {
   background-color: rgba(66, 85, 96, 0.7);
   display: inline-block;
-  margin-top: -30px;
   max-width: 300px;
   position: absolute;
-  bottom: 6px;
-  left: 16px;
-  right: 16px;
+  bottom: 1px;
+  left: 1px;
+  right: 1px;
   height: 38px;
   padding-top: 4px;
   padding-left: 15px; }
@@ -1505,8 +1527,17 @@ you can use the generic selector below, but it"s slower:
 .post-navigation-content {
   max-width: 1000px;
   margin: 0 auto; }
-  .post-navigation-content a:hover img {
-    border-color: #000; }
+  .post-navigation-content a {
+    position: relative; }
+    .post-navigation-content a:before {
+      content: "";
+      display: block;
+      padding-top: 58.333%; }
+    .post-navigation-content a:hover img {
+      border-color: #000; }
+  .post-navigation-content img {
+    position: absolute;
+    top: 0; }
 
 /*---:[ sidebar styles ]:---*/
 #sidebar {
@@ -1654,6 +1685,8 @@ li.widget li a:hover, li.linkcat li a:hover {
     font-size: 0.75rem;
     font-family: "Arial";
     line-height: 1.6em; }
+    .footer .textwidget .fb-like {
+      margin-right: 15px; }
   .footer .widget_text:first-child {
     float: left;
     min-width: 354px;
@@ -5145,9 +5178,6 @@ body, .navbar-main, li.menu-item-type-custom, li.menu-item-object-page, li.menu-
   left: 0;
   position: absolute; }
 
-/*.ngg-singlepic {
-    @extend %modal;
-}*/
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -5267,12 +5297,12 @@ header {
   width: 400px;
   max-width: 90%; }
 
-.header-twitter-follow {
+.header-social {
   display: inline-block;
-  width: 141px;
+  width: 90px;
   height: 20px;
   margin-top: 15px; }
-  .header-twitter-follow a {
+  .header-social a {
     color: transparent; }
 
 .header-facebook-follow {

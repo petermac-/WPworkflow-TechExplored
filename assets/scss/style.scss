@@ -39,22 +39,18 @@ $experimental-support-for-svg: true;
 	padding: 0;
 }
 %abs0 {
-    top: 0;
+		top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-    position: absolute;
+		position: absolute;
 }
 %transition {
-  @include single-transition(opacity, 0.2s, ease-in-out, 0);
+	@include single-transition(opacity, 0.2s, ease-in-out, 0);
 }
 %transition2 {
-  @include single-transition(opacity, 0.3s, ease-in-out, 0);
+	@include single-transition(opacity, 0.3s, ease-in-out, 0);
 }
-
-/*.ngg-singlepic {
-    @extend %modal;
-}*/
 
 * {
 	@include box-sizing(border-box);
@@ -73,13 +69,12 @@ body {
 	@include container;
 	@include hyphen();
 	@extend %mp0;
-    @include rem($body_fontsize);
+		@include rem($body_fontsize);
 	background-color: $body_bg_color;
 	font-family: $body_font;
 	font-weight: normal;
 	word-break: normal;
 	-webkit-font-smoothing: antialiased;
-	//-webkit-text-stroke: 1px;
 }
 
 /*---:[ core layout elements ]:---*/
@@ -87,202 +82,187 @@ img,
 embed,
 object,
 video {
-  max-width: 100%;
-  height: auto;
+	max-width: 100%;
+	height: auto;
 }
 textarea:focus, input:focus, button:focus{
-    outline: 0;
+		outline: 0;
 }
 header {
 	@include span-columns($topbar-cols,$total-columns);
 	@include gradl($topbar_grad);
 	background-color: $topbar_color;
-	//border-bottom: 1px solid #000;
-    box-shadow: black(0.65) 0 1px 4px 0;
-    margin-bottom: -50px;
-    min-width: $minWidth;
-    position: relative;
-    text-align: center;
-    z-index: 5;
+	box-shadow: black(0.65) 0 1px 4px 0;
+	margin-bottom: -50px;
+	min-width: $minWidth;
+	position: relative;
+	text-align: center;
+	z-index: 5;
 	height: $topbar-ht;
-		a {
+	a {
 		display: block;
 		height: 100%;
 		width: 100%;
 	}
 }
 .header-navicon {
-    @include rem(30px);
-    color: #999;
-    display: inline-block;
-    float: right;
-    font-family: "Arial";
-    font-weight: normal;
-    letter-spacing: 0px;
-    top: 7px;
-    right: 20px;
-    position: fixed;
-    text-shadow: 0 0 1px black(0.3);
-    -webkit-transform: rotate(-90deg);
-    z-index: 1001;
-    &:hover {
-        cursor: pointer;
-        color: #6c6c6c;
-        //text-shadow: 0 0 1px black(0.3);
-    }
+	@include rem(30px);
+	color: #999;
+	display: inline-block;
+	float: right;
+	font-family: "Arial";
+	font-weight: normal;
+	letter-spacing: 0px;
+	top: 7px;
+	right: 20px;
+	position: fixed;
+	text-shadow: 0 0 1px black(0.3);
+	-webkit-transform: rotate(-90deg);
+	z-index: 1001;
+	&:hover {
+			cursor: pointer;
+			color: #6c6c6c;
+	}
 }
 
 /*---:[ #header styles ]:---*/
 .logo-main {
-	//@include span-columns($logo-cols,$topbar-cols);
-	//border-right: $nav_border;
 	cursor: pointer;
-    float: left;
+	float: left;
 	height: 100%;
-    margin-left: 20px;
-	&:hover a {
-		//border-top: 2px solid black(0.2);
-	}
-	&:active {
-		//@include box-shadow(black(0.2) 0 0 1px 2px inset);
-	}
+	margin-left: 20px;
 }
 .site-logo {
-    @include rem(36px);
-    display: inline-block;
-    font-family: "League Gothic";
-    color: #fff;
-    line-height: $topbar-ht;
-    margin-top: 4px;
-    text-shadow: white(0.5) 0 0 1px, black(0.65) -1px 0 2px;
+	@include rem(36px);
+	display: inline-block;
+	font-family: "League Gothic";
+	color: #fff;
+	line-height: $topbar-ht;
+	margin-top: 4px;
+	text-shadow: white(0.5) 0 0 1px, black(0.65) -1px 0 2px;
 }
 .logo-main-img {
-    @extend %abs0;
+	@extend %abs0;
 	margin: auto;
-    width: 400px;
+	width: 400px;
 	max-width: 90%;
 }
-.header-twitter-follow {
-  display: inline-block;
-  width: 141px;
-  height: 20px;
-  margin-top: 15px;
-  a {
-    color: transparent;
-  }
+.header-social {
+	display: inline-block;
+	width: 90px;
+	height: 20px;
+	margin-top: 15px;
+	a {
+		color: transparent;
+	}
 }
 .header-facebook-follow {
-  display: inline-block;
+	display: inline-block;
 }
 
 /*---:[ nav menu styles ]:---*/
 .nav {
-	//@include span-columns($nav-cols,$topbar-cols);
-	//@include span-columns($nav-cols-2col,$total-columns);
-    position: fixed;
-    top: 15px;
-    right: 12px;
-    width: 36px;
-    height: 21px;
-    z-index: 1001;
-    &:hover {
-        height: 38px;
-        width: 200px;
-        right: 5px;
-    }
-    &:hover .navbar-main {
-        right: 0px;
-    }
+	position: fixed;
+	top: 15px;
+	right: 12px;
+	width: 36px;
+	height: 21px;
+	z-index: 1001;
+	&:hover {
+			height: 38px;
+			width: 200px;
+			right: 5px;
+	}
+	&:hover .navbar-main {
+			right: 0px;
+	}
 }
 .navbar-main {
 	@include rem(15px);
 	@extend %mp0;
-    background-color: #fff;
-    box-shadow: black(0.2) 0 0 1px 2px;
-    display: block;
-    position: absolute;
-    top: 36px;
-    right: -300px;
-    //right: -10px;
-    font-family: "SourceSansProRegular";
-    padding: 0.5em 0;
-    text-transform: uppercase;
+	background-color: #fff;
+	box-shadow: black(0.2) 0 0 1px 2px;
+	display: block;
+	position: absolute;
+	top: 36px;
+	right: -300px;
+	font-family: "SourceSansProRegular";
+	padding: 0.5em 0;
+	text-transform: uppercase;
 	list-style: none;
-    width: 200px;
-    z-index: 2;
-    [class^="icon-ello"], [class*=" icon-ello"] {
-        color: #444;
-        padding-left: 10px;
-        &:hover {
-            color: #fff;
-        }
-    }
-    .current-menu-item[class^="icon-ello"], .current-menu-item[class*=" icon-ello"] {
-        color: #fff;
-    }
-    .current-menu-parent[class^="icon-ello"], .current-menu-parent[class*=" icon-ello"] {
-        color: #fff;
-    }
-    .icon-elloup-dir {
-        @include rem(30px);
-        color: #fff;
-        position: absolute;
-        right: 5px;
-        top: -20px;
-        text-shadow: black(0.3) 0 -2px 2px;
-    }
+	width: 200px;
+	z-index: 2;
+	[class^="icon-ello"], [class*=" icon-ello"] {
+		color: #444;
+		padding-left: 10px;
+		&:hover {
+			color: #fff;
+		}
+	}
+	.current-menu-item[class^="icon-ello"], .current-menu-item[class*=" icon-ello"] {
+		color: #fff;
+	}
+	.current-menu-parent[class^="icon-ello"], .current-menu-parent[class*=" icon-ello"] {
+		color: #fff;
+	}
+	.icon-elloup-dir {
+		@include rem(30px);
+		color: #fff;
+		position: absolute;
+		right: 5px;
+		top: -20px;
+		text-shadow: black(0.3) 0 -2px 2px;
+	}
 }
 li.menu-item-type-custom, li.menu-item-object-page, li.menu-item-object-category {
 	@extend %mp0;
 	display: block;
 	height: 2em;
-    line-height: 2em;
+	line-height: 2em;
 	overflow: hidden;
-    padding-top: 2px;
-    position: relative;
+	padding-top: 2px;
+	position: relative;
 	width: 100%;
 	&:hover {
-        background-color: $nav_hover_color;
+		background-color: $nav_hover_color;
 		cursor: pointer;
 	}
 	a {
-        color: $nav_text_color;
+		color: $nav_text_color;
 		display: block;
-        height: 100%;
-        left: 0;
-        padding-left: 40px;
-        padding-top: 2px;
-        position: absolute;
-        top: 0;
-        right: 0;
+		height: 100%;
+		left: 0;
+		padding-left: 40px;
+		padding-top: 2px;
+		position: absolute;
+		top: 0;
+		right: 0;
 		text-decoration: none;
 		&:first-child {
 			margin-top: 0;
 		}
-        &:hover {
-            color: #fff;
-        }
+		&:hover {
+			color: #fff;
+		}
 	}
 }
 li.menu-item-object-page, li.menu-item-object-category {
 	&:active {
 		@include box-shadow(black(0.3) 0 1px 4px 0px inset);
-		//@include gradl($navbar_grad);
-        background-color: $nav_hover_color;
+			background-color: $nav_hover_color;
 	}
 }
 li.current-menu-item, li.current-menu-parent {
 	background-color: $nav_hover_color;
-    a {
-        color: #fff;
-    }
+	a {
+		color: #fff;
+	}
 }
 .icon-font-nav {
 	display: inline-block;
 	font-size: $icon-font-fontsize;
 	margin: 0 auto;
 	padding-top: $icon-font-toppading;
-	//text-shadow: 0 0 1px #000;
 	height: $icon-font-height;
 	width: $icon-font-width;
 }
@@ -305,206 +285,193 @@ li.current-menu-item, li.current-menu-parent {
 .header-search-dropdown {
 	@include rem(16px);
 	float: right;
-	//margin-right: -1px;
 	top: 0;
 	position: relative;
 }
 
 .header-search-container {
-    //background-color: $search_bg_color;
-    //display: inline-block;
-    display: none;
-    height: 28px;
+	display: none;
+	height: 28px;
 	width: 305px;
-    margin: 11px 60px 0 0;
-    float: right;
-    @include breakpoint(800px) {
-        display: block;
-    }
+	margin: 11px 60px 0 0;
+	float: right;
+	@include breakpoint(800px) {
+		display: block;
+	}
 }
 .header-search-form {
 	font-family: "Arial";
 }
 .header-search-input {
-    box-shadow: inset 0 0 0 1px #f9f9f9, inset 0 1px 0 0 #e5e5e5, 0 -1px 0 0 lighten(#232d33,10%);
+	box-shadow: inset 0 0 0 1px #f9f9f9, inset 0 1px 0 0 #e5e5e5, 0 -1px 0 0 lighten(#232d33,10%);
 	color: $searchbt_textc;
-	//border: 1px solid;
-    border: none;
-    border-radius: 2px;
+	border: none;
+	border-radius: 2px;
 	border-color: #bfbfbf #ddd #ddd #bfbfbf;
 	padding-left: 10px;
 	height: 28px;
 	width: 300px;
-    vertical-align: top;
+	vertical-align: top;
 	&:focus {
-        outline: none;
-        //background: #fff;
-        //box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
-    }
-	&:hover { outline: none; }
+		outline: none;
+	}
+	&:hover {
+		outline: none;
+	}
 }
 .header-search-input::-webkit-input-placeholder {
-   color: #999;
-   font-weight: normal;
-   font-style: italic;
+	color: #999;
+	font-weight: normal;
+	font-style: italic;
 }
 .header-search-input:-moz-placeholder {
-    color: #999;
-    font-weight: normal;
-    font-style: italic;
+	color: #999;
+	font-weight: normal;
+	font-style: italic;
 }
 .header-search-input:-ms-input-placeholder {
-    color: #999;
-    font-weight: normal;
-    font-style: italic;
+	color: #999;
+	font-weight: normal;
+	font-style: italic;
 }
 .search-button {
 	-moz-user-select: none;
-    //@include gradl($searchbt_bgc_grad);
-    //border: 1px solid rgba(0, 0, 0, 0.1);
-    background-color: transparent;
-    border: none;
-    color: #444444;
+	background-color: transparent;
+	border: none;
+	color: #444444;
 	cursor: pointer;
 	display: inline-block;
-	//font-weight: bold;
 	text-align: center;
 	margin: 6px 0 0 -28px;
 	padding: 0;
-    overflow: visible;
-    position: relative;
-    span {
-        @include rem(13px);
-    }
+	overflow: visible;
+	position: relative;
+	span {
+		@include rem(13px);
+	}
 	&:hover {
-        //@include gradl($searchbt_hover_grad);
-        outline: 0;
-    }
+		outline: 0;
+	}
 	&:active {
-        //@include box-shadow(black(0.2) 0 0 15px 1px inset);
-        outline: 0;
-    }
+		outline: 0;
+	}
 }
 .search-button::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+	border: 0;
+	padding: 0;
 }
 .navigation {
 	@include rem($navigation_fz);
-    background-color: #333;
-    font-family: "OpenSansSemibold";
+	background-color: #333;
+	font-family: "OpenSansSemibold";
 	margin: 0 0 33px 0;
-    padding: 20px 0;
+	padding: 20px 0;
 	width: 100%;
 }
 .wp-pagenavi {
-    @include rem(15px);
-    padding: 10px 30px;
-    text-align: center;
-    a, span.pages {
-        color: #FFF;
-        margin-right: 5px;
-        padding: 10px 15px;
-    }
-    a:hover {
-        background-color: #eee;
-        color: #000;
-        text-decoration: none;
-    }
-    span.current {
-        &:hover {
-            cursor: default;
-        }
-        background-color: #FFF;
-        margin-right: 5px;
-        padding: 10px 15px;
-    }
-    span.extend {
-      color: #FFF;
-      margin-right: 5px;
-      &:hover {
-        cursor: pointer;
-      }
-    }
+	@include rem(15px);
+	padding: 10px 30px;
+	text-align: center;
+	a, span.pages {
+		color: #FFF;
+		margin-right: 5px;
+		padding: 10px 15px;
+	}
+	a:hover {
+		background-color: #eee;
+		color: #000;
+		text-decoration: none;
+	}
+	span.current {
+		&:hover {
+			cursor: default;
+		}
+		background-color: #FFF;
+		margin-right: 5px;
+		padding: 10px 15px;
+	}
+	span.extend {
+		color: #FFF;
+		margin-right: 5px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
 }
 .gallery {
-  width: 100%;
-  .entry {
-    text-align: center;
-    h1 {
-      //text-align: left;
-    }
-    a {
-      display: inline-block;
-    }
-    img {
-      max-width: 400px;
-    }
-  }
+	width: 100%;
+	.entry {
+		text-align: center;
+		a {
+			display: inline-block;
+		}
+		img {
+			max-width: 400px;
+		}
+	}
 }
 .page-404 {
-  text-align: center;
+	text-align: center;
 }
 .page-404-text {
-  @include rem(26px);
-  border-radius: 4px;
-  color: #fff;
-  background-color: #666;
-  margin-bottom: 20px;
-  padding: 10px;
-  vertical-align: top;
+	@include rem(26px);
+	border-radius: 4px;
+	color: #fff;
+	background-color: #666;
+	margin-bottom: 20px;
+	padding: 10px;
+	vertical-align: top;
 }
 .page-404-search-container {
-  padding: 5px 0;
+	padding: 5px 0;
 }
 .page-404-search-form {
-  font-size: 0;
-  width: 100%;
-  position: relative;
+	font-size: 0;
+	width: 100%;
+	position: relative;
 }
 .page-404-search-input {
-  @include rem(20px);
-  position: absolute;
-  left: 0;
-  right: 69px;
-  border-radius: 6px 0 0 6px;
-  height: 45px;
-  margin: 0px;
-  outline: none;
-  background-color: rgb(255, 255, 255);
-  //box-shadow: inset 0 0 0 1px #f9f9f9, inset 0 1px 0 0 #e5e5e5, 0 -1px 0 0 lighten(#232d33,10%);
-  color: $searchbt_textc;
-  border: 1px solid;
-  border-color: #bfbfbf #ddd #ddd #bfbfbf;
-  padding: 0 10px;
-  vertical-align: top;
-  &:focus {
-        outline: none;
-        //background: #fff;
-        //box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
-  }
-  &:hover { outline: none; }
+	@include rem(20px);
+	position: absolute;
+	left: 0;
+	right: 69px;
+	border-radius: 6px 0 0 6px;
+	height: 45px;
+	margin: 0px;
+	outline: none;
+	background-color: rgb(255, 255, 255);
+	color: $searchbt_textc;
+	border: 1px solid;
+	border-color: #bfbfbf #ddd #ddd #bfbfbf;
+	padding: 0 10px;
+	vertical-align: top;
+	&:focus {
+		outline: none;
+	}
+	&:hover {
+		outline: none;
+	}
 }
 .page-404-search-button {
-  position: absolute;
-  right: 0;
-  background-image: -webkit-linear-gradient(top, #4d90fe, #357ae8);
-  border: 1px solid;
-  border-color: #2F5BB7;
-  background-image: none;
-  filter: none;
-  background-color: #357AE8;
-  box-sizing: content-box;
-  font-size: 11px;
-  font-weight: bold;
-  color: #fff;
-  min-width: 13px;
-  width: 13px;
-  height: 13px;
-  &:hover {
-    cursor: pointer;
-  }
+	position: absolute;
+	right: 0;
+	background-image: -webkit-linear-gradient(top, #4d90fe, #357ae8);
+	border: 1px solid;
+	border-color: #2F5BB7;
+	background-image: none;
+	filter: none;
+	background-color: #357AE8;
+	box-sizing: content-box;
+	font-size: 11px;
+	font-weight: bold;
+	color: #fff;
+	min-width: 13px;
+	width: 13px;
+	height: 13px;
+	&:hover {
+		cursor: pointer;
+	}
 }
 .page-404-search-button-text {
-  
+	
 }

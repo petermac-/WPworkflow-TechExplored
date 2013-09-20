@@ -299,15 +299,19 @@ function post_has_image($content) {
 	     // Your post have one or more images.
 		$content .= '<script src="' . get_stylesheet_directory_uri() . '/assets/js/vendor/magnificpopup.js"></script>';
 		$content .= "<script> (function($) { $('.entry').magnificPopup({ delegate: 'a', type: 'image', removalDelay: 500, callbacks: { beforeOpen: function() { this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim'); this.st.mainClass = this.st.el.attr('data-effect'); } }, gallery: { enabled: true, preload: [0,2], navigateByImgClick: true, arrowMarkup: '<button title=\"%title%\" type=\"button\" class=\"mfp-arrow mfp-arrow-%dir%\"></button>', tPrev: 'Previous (Left arrow key)', tNext: 'Next (Right arrow key)', tCounter: '<span class=\"mfp-counter\">%curr% of %total%</span>' }, closeOnContentClick: true, midClick: true }); })(jQuery); </script>";
-		
 		for($i=0; $i < $iNumberOfPics; $i++) {
-			//$content = $content . $imgs[0][0];
-			$tmp = str_replace('<a','<a data-effect="mfp-zoom-in"',$pics[0][$i]);
+			$tmp = str_replace('<a','<a class="post-img-link" data-effect="mfp-zoom-in"',$pics[0][$i]);
 			$content = str_replace($pics[0][$i],$tmp,$content);
-			//$content = str_replace('<a','<a data-effect="mfp-zoom-in"',$content);
+		}
+		$pos = strpos($content, '<div class="page-gallery"');
+		if($pos !== FALSE) {
+			$posEnd = strpos($content, '</div>', $pos);
+			$length = $posEnd + 6 - $pos;
+			$gallery = substr($content, $pos, $posEnd);
+			$gallery = str_replace('<br />','',$gallery);
+			$content = substr($content, 0, $pos) . $gallery . substr($content, $posEnd);
 		}
 	}
 	return $content;
 }
-//add_action('post_image', 'post_has_image');
 add_filter('the_content','post_has_image',10);

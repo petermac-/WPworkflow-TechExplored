@@ -1,6 +1,6 @@
 /* Mixins */
 @mixin gradl($grad) {
-    @include background-image(linear-gradient($grad...));
+	@include background-image(linear-gradient($grad...));
 }
 @mixin abs0() {
   top: 0;
@@ -10,27 +10,27 @@
   margin: auto;
 }
 @mixin font-smoothing($val: antialiased) {
-    -webkit-font-smoothing: $val;
-    -moz-font-smoothing: $val;
-    -ms-font-smoothing: $val;
-    -o-font-smoothing: $val;
+	-webkit-font-smoothing: $val;
+	-moz-font-smoothing: $val;
+	-ms-font-smoothing: $val;
+	-o-font-smoothing: $val;
 }
  @mixin prefix-values($property, $value, $prefixes: $default-prefixes) {
-     @each $prefix in $prefixes {
-          -#{$prefix}-#{$property}: #{$value};
-     }
-     #{$property}: #{$value};
+	 @each $prefix in $prefixes {
+		  -#{$prefix}-#{$property}: #{$value};
+	 }
+	 #{$property}: #{$value};
 }
 @mixin clear() {
-    &:before, &:after {
-        content: "\0020";
-        display: block;
-        height: 0;
-        overflow: hidden;
-    }
-    &:after {
-        clear: both;
-    }
+	&:before, &:after {
+		content: "\0020";
+		display: block;
+		height: 0;
+		overflow: hidden;
+	}
+	&:after {
+		clear: both;
+	}
 }
 @mixin linkTextOffscreen() {
 	text-indent: 100%;
@@ -38,50 +38,50 @@
 	overflow: hidden;
 }
 @mixin hoverActiveFocus($property, $value) {
-    &:hover, &:active, &:focus {
-        #{$property}: $value;
-    }
+	&:hover, &:active, &:focus {
+		#{$property}: $value;
+	}
 }
 @mixin wh($width: false, $height: false) {
-    $width: unquote($width);
-    @if $height != none { 
-        $height: unquote($height); }
-        
-    @if $height != false {
-        width: #{$width};
-        height: #{$height}; }
-    @else {
-        width: #{$width};
-        height: #{$width}; }
+	$width: unquote($width);
+	@if $height != none { 
+		$height: unquote($height); }
+		
+	@if $height != false {
+		width: #{$width};
+		height: #{$height}; }
+	@else {
+		width: #{$width};
+		height: #{$width}; }
 }
 @mixin letterpress($opacity){
-    text-shadow:white($opacity) 0 1px 0;
+	text-shadow:white($opacity) 0 1px 0;
 }
 @mixin rem($val, $base: 16) {
   @if unit($val) == "px" or (unitless($val)) {
-    font-size: $val;
-    font-size: rem($val, 16);
+	font-size: $val;
+	font-size: rem($val, 16);
   } @else if unit($val) == "rem" {
-    font-size: rem2px($val);
-    font-size: $val;
+	font-size: rem2px($val);
+	font-size: $val;
   }
 }
 @mixin prem($prop, $val, $base: 16) {
   @if (unitless($val)) {
-    $val: $val * 1rem;
+	$val: $val * 1rem;
   }
   @if $prop == "w" {
-    width: rem2px($val);
-    width: $val;
+	width: rem2px($val);
+	width: $val;
   } @else if $prop == "h" {
-    height: rem2px($val);
-    height: $val;
+	height: rem2px($val);
+	height: $val;
   } @else if $prop == "l" {
-    letter-spacing: rem2px($val);
-    letter-spacing: $val;
+	letter-spacing: rem2px($val);
+	letter-spacing: $val;
   } @else if $prop == "lh" {
-    line-height: rem2px($val);
-    line-height: $val;
+	line-height: rem2px($val);
+	line-height: $val;
   }
 }
 @mixin padrem($p1, $p2, $p3: 0, $p4: 0) {
@@ -95,20 +95,20 @@
 @mixin hyphen() {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
-    hyphens: auto;
+	hyphens: auto;
   -ms-word-break: break-all;
-    word-break: break-all;
+	word-break: break-all;
 
-    // Non standard for webkit
-    word-break: break-word;
+	// Non standard for webkit
+	word-break: break-word;
 
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
-    hyphens: auto;
-                    
+	hyphens: auto;
+					
   -webkit-hyphenate-before: 2;
   -webkit-hyphenate-after: 3;
-    hyphenate-lines: 3;
+	hyphenate-lines: 3;
 }
 @mixin liga() {
   -moz-font-feature-settings: "liga=1, dlig=1";
@@ -119,10 +119,10 @@
 }
 /* Functions */
 @function black($opacity){
-    @return rgba(0,0,0,$opacity)
+	@return rgba(0,0,0,$opacity)
 }
 @function white($opacity){
-    @return rgba(255,255,255,$opacity)
+	@return rgba(255,255,255,$opacity)
 }
 @function strip-units($number) {
   @return $number / ($number * 0 + 1);
@@ -130,11 +130,11 @@
 @function rem($pxval, $base: 16) {
   @if $pxval == 0 { @return 0 }
   @if (unitless($pxval)) {
-    $pxval: $pxval * 1px;
+	$pxval: $pxval * 1px;
   }
 
   @if (unitless($base)) {
-    $base: $base * 1px;
+	$base: $base * 1px;
   }
 
   @return $pxval / $base * 1rem;
@@ -142,11 +142,11 @@
 @function rem2px($remval, $base: 1) {
   @if $remval == 0 { @return 0 }
   @if (unitless($remval)) {
-    $remval: $remval * 1rem;
+	$remval: $remval * 1rem;
   }
 
   @if (unitless($base)) {
-    $base: $base * 1rem;
+	$base: $base * 1rem;
   }
 
   @return $remval / $base * 16px;

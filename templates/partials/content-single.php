@@ -13,8 +13,21 @@
 		<?php get_template_part( 'templates/partials/inc', 'featured' ); ?>
 		<div class="post-meta-content">
 			<div class="post-share">
+				<span class="post-share-facebook">
+					<div class="fb-like" data-width="80" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+				</span>
 				<span class="post-share-twitter">
 					<a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true">Tweet</a>
+				</span>
+				<span class="post-share-google">
+					<div class="g-plusone" data-size="medium"></div>
+					<script type="text/javascript">
+					  (function() {
+					    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+					    po.src = 'https://apis.google.com/js/plusone.js';
+					    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+					  })();
+					</script>
 				</span>
 			</div>
 			<?php get_template_part( 'templates/partials/inc', 'meta2' ); ?>
