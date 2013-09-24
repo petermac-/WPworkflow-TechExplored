@@ -8,8 +8,6 @@
 
 	<?php endwhile; ?>
 
-	<?php //if ( is_active_sidebar(1) ) { get_sidebar(); } ?>
-
 </section> <!-- /container -->
 
 <?php get_footer(); ?>

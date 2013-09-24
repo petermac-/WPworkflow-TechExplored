@@ -58,8 +58,6 @@
 
 	</section> <!-- /content -->
 
-	<?php //get_template_part( 'templates/partials/inc', 'nav' ); ?>
-
 </section> <!-- /container -->
 
 <?php get_footer(); ?>
