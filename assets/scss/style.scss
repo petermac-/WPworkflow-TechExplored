@@ -25,11 +25,12 @@ $experimental-support-for-svg: true;
 @import "pages/gallery";
 @import "pages/categories";
 @import "partials/wordpress";
-@import "modules/_effeckt.scss";
-@import "partials/alertify/_alertify.core.scss";
-@import "partials/alertify/_alertify.default.scss";
+//@import "partials/alertify/_alertify.core.scss";
+//@import "partials/alertify/_alertify.default.scss";
+//@import "modules/_effeckt.scss";
 @import "partials/_progressbars.scss";
 @import "modules/_magnific-popup.scss";
+//@import "modules/_hook.scss";
 
 %center {
 	margin: 0 auto;
@@ -39,11 +40,11 @@ $experimental-support-for-svg: true;
 	padding: 0;
 }
 %abs0 {
-		top: 0;
+	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-		position: absolute;
+	position: absolute;
 }
 %transition {
 	@include single-transition(opacity, 0.2s, ease-in-out, 0);
@@ -51,20 +52,16 @@ $experimental-support-for-svg: true;
 %transition2 {
 	@include single-transition(opacity, 0.3s, ease-in-out, 0);
 }
-
 * {
 	@include box-sizing(border-box);
 }
-
 html {
 	font-size: 100%;
 }
-
 html,body {
 	height: 100%;
 	min-height: 100%;
 }
-
 body {
 	@include container;
 	@include hyphen();
@@ -75,6 +72,12 @@ body {
 	font-weight: normal;
 	word-break: normal;
 	-webkit-font-smoothing: antialiased;
+}
+a, input, button {
+    -ms-touch-action: none !important; // no 300ms delay on buttons or links in IE10
+    &:active {
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
 }
 
 /*---:[ core layout elements ]:---*/

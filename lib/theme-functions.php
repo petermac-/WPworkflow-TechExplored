@@ -161,19 +161,9 @@ Frontend
  * Enqueue scripts
  */
 function te_scripts() {
-	// CSS first
-	//wp_register_style('te_style', get_stylesheet_directory_uri().'/style.css', null, '1.0', 'all' );
-	//wp_enqueue_style( 'te_style' );
 	// JavaScript
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
-	}
-	if ( !is_admin() ) {
-		//wp_enqueue_script('jquery');
-		//wp_enqueue_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, NULL );
-		//wp_enqueue_script('customplugins', get_template_directory_uri() . '/assets/js/plugins.min.js', array('jquery'), NULL, true );
-		//wp_enqueue_script('customscripts', get_template_directory_uri() . '/assets/js/main.min.js', array('jquery'), NULL, true );
-		//wp_enqueue_script('customscripts', get_template_directory_uri() . '/assets/js/vendor/jquery.easing.1.3.js', array('jquery'), NULL, true );
 	}
 }
 
@@ -233,38 +223,10 @@ function te_custom_excerpt( $length ) {
 		$text = substr($text, 0, $pos) . substr($text, $posEnd); // remove <script>*</script>
 	}
 
-	//$text = preg_replace('~<script>*</script>~', '', $text);
 	$text = strip_tags($text, '<a></a>');
 	$text = preg_replace('/^\s+|\n|\r|\s+$/m', ' ', $text);
-
-	//$title = get_the_title();
-	/*if( strlen($text) > 315 ) {
-		if( strlen($title) > 45 ) {
-			//$excerpt_length = apply_filters('excerpt_length', 43);
-			//$excerpt_more = apply_filters('excerpt_more', '...');
-			$text = substr($text, 0, 315);
-			//$text = wp_trim_words( $text, $excerpt_length, $excerpt_more ); //since wp3.3
-		} else {
-			//$excerpt_length = apply_filters('excerpt_length', 60);
-			//$excerpt_more = apply_filters('excerpt_more', '...');
-			$text = substr($text, 0, 385);
-			//$text = wp_trim_words( $text, $excerpt_length, $excerpt_more ); //since wp3.3
-		}
-	}*/
 	$text = substr($text, 0, 650);
-	//$text = substr($text, 0, strripos($text, " "));
-	//$text = rtrim($text); //posts that had crayon syntax plugin removed from excerpt had an extra space at the end
-	//$text = $text.'...';
 
-	/*$words = explode(' ', $text, $excerpt_length + 1);
-	  if (count($words)> $excerpt_length) {
-	    array_pop($words);
-	    $text = implode(' ', $words);
-	    $text = $text . $excerpt_more;
-	  } else {
-	    $text = implode(' ', $words);
-	  }
-	return $text;*/
 	return apply_filters('wp_trim_excerpt', $text, $raw_excerpt); //since wp3.3
 }
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
@@ -284,12 +246,9 @@ function post_image() {
      do_action('post_image');
 }
 function post_has_image($content) {
-	//$content = $post->post_content;
-	//$searchimages = '~<img [^>]* />~';
 	$searchnestedimages = '~<a [^>]*><img [^>]* /></a>~';
 	/*Run preg_match_all to grab all the images and save the results in $pics*/
 
-	//preg_match_all( $searchimages, $content, $pics );
 	preg_match_all( $searchnestedimages, $content, $pics );
 
 	// Check to see if we have at least 1 image

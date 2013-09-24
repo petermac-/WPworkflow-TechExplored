@@ -169,8 +169,8 @@ function te_setup() {
 
 	//-------[ post excerpt thumbnail support ]-------
 	if ( function_exists( 'add_theme_support' ) ) { 
-		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 300, 225, true ); // default Post Thumbnail dimensions (cropped)
+		//add_theme_support( 'post-thumbnails' );
+		//set_post_thumbnail_size( 300, 225, true ); // default Post Thumbnail dimensions (cropped)
 	}
 
 	//-------[ add post thumbnail column in main post page ]-------

@@ -13,9 +13,7 @@
 
 			<?php $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(),'full' ); ?>
 
-				<div class="excerpt-gallery-img" style="<?php echo 'background-image: url(' . $image_src[0] . ')'?>">
-					<?php //echo '<img src="' . $image_src[0] . '" />'; ?>
-				</div>
+				<div class="excerpt-gallery-img" style="<?php echo 'background-image: url(' . $image_src[0] . ')'?>"></div>
 				<a class="excerpt-title" href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2><span class="icon-ellopicture-2"></span></a>
 
 			<?php } else { ?>

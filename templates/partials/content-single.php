@@ -42,11 +42,7 @@
 
 			<?php the_content(); ?>
 
-			<?php //wp_link_pages( array( 'before' => 'Pages: ', 'next_or_number' => 'number' ) ); ?>
-
 			<?php wp_pagenavi( array( 'type' => 'multipart' ) ); ?>
-
-			<?php //the_tags( 'Tags: ', ', ', ''); ?>
 
 		</div>
 
@@ -68,29 +64,30 @@
 				<?php
 					$prev_post = get_previous_post();
 					if (!empty( $prev_post )): ?>
+
 						<div class="prev-post">
 							Previous Post
 				  		<a href="<?php echo get_permalink( $prev_post->ID ); ?>">
 				  			<?php $prevtitle = $prev_post->post_title;
-				  				echo get_the_post_thumbnail($prev_post->ID, 'thumbnail');
+				  				echo get_the_post_thumbnail($prev_post->ID, 'full');
 				  				echo "<div class=\"post-navigation-title\">" . $prevtitle . "</div>"; ?>
 				  		</a>
-							<?php //previous_post_link('%link','%title',0); ?>
 						</div>
-				<?php endif; ?>
+
+				<?php endif;
 			
-				<?php
 					$next_post = get_next_post();
 					if (!empty( $next_post )): ?>
+
 						<div class="next-post">
 							Next Post
 				  		<a href="<?php echo get_permalink( $next_post->ID ); ?>">
 				  			<?php $nexttitle = $next_post->post_title;
-				  				echo get_the_post_thumbnail($next_post->ID, 'thumbnail');
+				  				echo get_the_post_thumbnail($next_post->ID, 'full');
 				  				echo "<div class=\"post-navigation-title\">" . $nexttitle . "</div>"; ?>
 				  		</a>
-							<?php //next_post_link('%link','%title',0); ?>
 						</div>
+
 				<?php endif; ?>
 				
 			</div>
