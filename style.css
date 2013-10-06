@@ -1,5 +1,344 @@
-@charset "IBM437";
 /* Vendor Dependencies */
+/* normalize.css v2.1.3 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+audio,
+canvas,
+video {
+  display: inline-block; }
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9.
+ * Hide the `template` element in IE, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none; }
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0; }
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background: transparent; }
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+a:focus {
+  outline: thin dotted; }
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+pre {
+  white-space: pre-wrap; }
+
+/**
+ * Set consistent quote types.
+ */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+img {
+  border: 0; }
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+figure {
+  margin: 0; }
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal; }
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box; }
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */ }
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 /* Authored Dependencies */
 /* Mixins */
 /* Functions */
@@ -60,6 +399,13 @@
   font-family: "SourceSansProRegular";
   src: url("assets/fonts/SourceSansPro-Regular-webfont.eot");
   src: url("assets/fonts/SourceSansPro-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("assets/fonts/SourceSansPro-Regular-webfont.woff") format("woff"), url("assets/fonts/SourceSansPro-Regular-webfont.ttf") format("truetype"), url("assets/fonts/SourceSansPro-Regular-webfont.svg#SourceSansProRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "fontello";
+  src: url("assets/fonts/fontello.eot?40378300");
+  src: url("assets/fonts/fontello.eot?40378300#iefix") format("embedded-opentype"), url("assets/fonts/fontello.woff?40378300") format("woff"), url("assets/fonts/fontello.ttf?40378300") format("truetype"), url("assets/fonts/fontello.svg?40378300#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -148,7 +494,7 @@ abbr, acronym {
 code {
   color: #090;
   font-family: Courier, "Courier New", monospace;
-  line-height: 10px; }
+  line-height: 1.1; }
 
 pre {
   font-size: 13px;
@@ -174,70 +520,36 @@ p.center {
 h1, h2, h3, h4 {
   color: black;
   letter-spacing: 0px;
-  font-weight: normal; }
-
-h1, h2 {
-  line-height: 1.6em;
-  margin-top: 0.4em;
-  margin-bottom: 0; }
+  line-height: 1.1;
+  font-family: "LatoBold";
+  font-style: normal;
+  font-weight: normal;
+  padding: 0;
+  margin: 0 0 8px; }
 
 h1 {
   font-size: 30px;
   font-size: 1.875rem;
-  -moz-font-feature-settings: "liga=1, dlig=1";
-  -ms-font-feature-settings: "liga", "dlig";
-  -webkit-font-feature-settings: "liga", "dlig";
-  -o-font-feature-settings: "liga", "dlig";
-  font-feature-settings: "liga", "dlig";
-  font-family: "LatoBold";
-  margin-top: 0.2em;
-  margin-bottom: 0; }
+  margin-top: 15px; }
 
 h2 {
-  font-size: 22px;
-  font-size: 1.375rem;
-  font-family: "LatoBold"; }
+  font-size: 24px;
+  font-size: 1.5rem;
+  margin-top: 20px; }
 
-/*---:[ headline link colors on the main page, archive pages, and search pages ]:---*/
 h1 a, h1 a:visited, h2 a, h2 a:visited {
   color: black; }
 
-.page h1 {
-  border-bottom: 1px double #ccc;
-  margin: 0 0 6px 0; }
-
-.archive h1 {
-  margin: 0 0 10px 0; }
-
 h3 {
-  font-size: 20px;
-  font-size: 1.25rem; }
-
-.entry h3 {
-  margin: 17px 0 6px 0; }
-
-#comments h3 {
   font-size: 18px;
-  font-size: 1.125rem; }
-
-#comments h3.comment_intro {
-  border-top: 2px double #ccc;
-  margin: 0 0 11px 0;
-  padding: 21px 0 0 0; }
-
-#comments h3#respond {
-  margin: 22px 0 0 0; }
+  font-size: 1.125rem;
+  color: #222;
+  margin-top: 20px; }
 
 h4 {
   font-size: 15px;
   font-size: 0.9375rem;
-  font-weight: bold; }
-
-.entry h1 {
-  margin-top: 0;
-  margin-bottom: 0.2em; }
-.entry h2 {
-  margin-bottom: 0.4em; }
+  font-family: "League Gothic"; }
 
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
@@ -250,47 +562,6 @@ h4 {
   line-height: 1;
   -webkit-font-smoothing: antialiased; }
 
-.sosa[data-icon]:before {
-  font-family: "sosa";
-  content: attr(data-icon);
-  speak: none;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
-
-/* Use the following CSS code if you want to have a class per icon */
-/*
-Instead of a list of all class selectors,
-you can use the generic selector below, but it"s slower:
-[class*="icon-"] {
-
-.icon-android, .icon-chrome, .icon-firefox, .icon-windows8, .icon-magnifying-glass {
-    font-family: "icomoon";
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-}
-.icon-android:before {
-    content: "\e000";
-}
-.icon-chrome:before {
-    content: "\e001";
-}
-.icon-firefox:before {
-    content: "\e002";
-}
-.icon-windows8:before {
-    content: "\e003";
-}
-.icon-magnifying-glass:before {
-    content: "\e004";
-}*/
 [class^="icon-ello"]:before, [class*=" icon-ello"]:before {
   font-family: "fontello";
   font-style: normal;
@@ -301,7 +572,6 @@ you can use the generic selector below, but it"s slower:
   width: 1em;
   margin-right: .2em;
   text-align: center;
-  /* opacity: .8; */
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
@@ -311,13 +581,7 @@ you can use the generic selector below, but it"s slower:
   /* remove if not needed */
   margin-left: .2em;
   /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
-
-.icon-ellosearch-4 {
-  margin-right: 0.4em;
-  text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); }
+  /* font-size: 120%; */ }
 
 .icon-ellodesktop-1 {
   margin-right: 0.4em;
@@ -338,317 +602,29 @@ you can use the generic selector below, but it"s slower:
   text-align: center; }
 
 .icon-elloandroid-1:before {
-  content: '\e803'; }
+  content: "\e803"; }
 
-/* '' */
-.icon-ellowindows:before {
-  content: '\e804'; }
-
-/* '' */
-.icon-elloemail:before {
-  content: '\e809'; }
-
-/* '' */
-.icon-ellogmail:before {
-  content: '\e808'; }
-
-/* '' */
-.icon-elloup-3:before {
-  content: '\e827'; }
-
-/* '' */
-.icon-elloup-2:before {
-  content: '\e826'; }
-
-/* '' */
-.icon-elloup-big:before {
-  content: '\e835'; }
-
-/* '' */
-.icon-elloup-1:before {
-  content: '\e823'; }
-
-/* '' */
-.icon-elloup-fat:before {
-  content: '\e825'; }
-
-/* '' */
-.icon-elloup-bold:before {
-  content: '\e824'; }
-
-/* '' */
-.icon-elloup-dir-1:before {
-  content: '\e83b'; }
-
-/* '' */
-.icon-elloup-dir:before {
-  content: '\e838'; }
-
-/* '' */
-.icon-ellomenu-3:before {
-  content: '\e849'; }
-
-/* '' */
-.icon-ellomail-6:before {
-  content: '\e80c'; }
-
-/* '' */
-.icon-ellomail-3:before {
-  content: '\e807'; }
-
-/* '' */
-.icon-ellomail:before {
-  content: '\e800'; }
-
-/* '' */
-.icon-ellomail-2:before {
-  content: '\e806'; }
-
-/* '' */
-.icon-elloup-5:before {
-  content: '\e82d'; }
-
-/* '' */
-.icon-ellosearch:before {
-  content: '\e816'; }
-
-/* '' */
-.icon-ellodesktop-2:before {
-  content: '\e812'; }
-
-/* '' */
-.icon-ellomail-5:before {
-  content: '\e80b'; }
-
-/* '' */
-.icon-elloup-outline:before {
-  content: '\e82b'; }
-
-/* '' */
-.icon-elloup-4:before {
-  content: '\e82a'; }
-
-/* '' */
-.icon-elloup-small:before {
-  content: '\e82c'; }
-
-/* '' */
-.icon-ellosearch-5:before {
-  content: '\e81c'; }
-
-/* '' */
-.icon-ellodesktop-1:before {
-  content: '\e811'; }
-
-/* '' */
-.icon-ellodesktop-3:before {
-  content: '\e815'; }
-
-/* '' */
-.icon-ellopicture-2:before {
-  content: '\e840'; }
-
-/* '' */
-.icon-elloflow-split:before {
-  content: '\e84b'; }
-
-/* '' */
-.icon-elloflow-merge:before {
-  content: '\e84c'; }
-
-/* '' */
-.icon-elloflow-cross:before {
-  content: '\e84a'; }
-
-/* '' */
-.icon-ellopicture-outline:before {
-  content: '\e841'; }
-
-/* '' */
-.icon-ellopicture-1:before {
-  content: '\e83f'; }
-
-/* '' */
-.icon-elloinfinity-outline:before {
-  content: '\e814'; }
-
-/* '' */
-.icon-ellomail-1:before {
-  content: '\e805'; }
-
-/* '' */
-.icon-elloup:before {
-  content: '\e820'; }
-
-/* '' */
-.icon-ellopi-outline:before {
-  content: '\e813'; }
-
-/* '' */
-.icon-elloup-open:before {
-  content: '\e81f'; }
-
-/* '' */
-.icon-ellomail-4:before {
-  content: '\e80a'; }
-
-/* '' */
-.icon-ellomenu-outline:before {
-  content: '\e848'; }
-
-/* '' */
-.icon-ellomenu-1:before {
-  content: '\e846'; }
-
-/* '' */
-.icon-elloupload-outline:before {
-  content: '\e828'; }
-
-/* '' */
-.icon-elloupload:before {
-  content: '\e829'; }
-
-/* '' */
-.icon-ellosearch-outline:before {
-  content: '\e818'; }
-
-/* '' */
-.icon-ellosearch-2:before {
-  content: '\e819'; }
-
-/* '' */
-.icon-elloup-bold-1:before {
-  content: '\e82e'; }
-
-/* '' */
-.icon-elloup-circled:before {
-  content: '\e832'; }
-
-/* '' */
-.icon-elloup-open-1:before {
-  content: '\e81e'; }
-
-/* '' */
-.icon-elloup-open-3:before {
-  content: '\e830'; }
-
-/* '' */
-.icon-elloup-open-mini:before {
-  content: '\e831'; }
-
-/* '' */
-.icon-elloup-open-big:before {
-  content: '\e82f'; }
-
-/* '' */
-.icon-elloup-micro:before {
-  content: '\e839'; }
-
-/* '' */
-.icon-ellofirefox:before {
-  content: '\e843'; }
-
-/* '' */
-.icon-ellochrome:before {
-  content: '\e842'; }
-
-/* '' */
-.icon-elloie:before {
-  content: '\e844'; }
-
-/* '' */
-.icon-elloup-open-2:before {
-  content: '\e822'; }
-
-/* '' */
-.icon-ellomenu-2:before {
-  content: '\e847'; }
-
-/* '' */
-.icon-elloupload-1:before {
-  content: '\e821'; }
-
-/* '' */
-.icon-ellomonitor-1:before {
-  content: '\e810'; }
-
-/* '' */
-.icon-elloup-circled-1:before {
-  content: '\e83c'; }
-
-/* '' */
-.icon-ellomenu:before {
-  content: '\e845'; }
-
-/* '' */
-.icon-ellosort-up:before {
-  content: '\e837'; }
-
-/* '' */
-.icon-ellomail-alt:before {
-  content: '\e801'; }
-
-/* '' */
-.icon-elloangle-double-up:before {
-  content: '\e836'; }
-
-/* '' */
-.icon-elloangle-up:before {
-  content: '\e833'; }
-
-/* '' */
-.icon-ellodesktop:before {
-  content: '\e80e'; }
-
-/* '' */
 .icon-ellogamepad:before {
-  content: '\e80d'; }
+  content: "\e80d"; }
 
-/* '' */
-.icon-elloup-6:before {
-  content: '\e834'; }
+.icon-ellochrome:before {
+  content: "\e842"; }
 
-/* '' */
-.icon-elloandroid:before {
-  content: '\e802'; }
+.icon-elloflow-split:before {
+  content: "\e84b"; }
 
-/* '' */
-.icon-ellowin8:before {
-  content: '\e84d'; }
+.icon-ellowindows:before {
+  content: "\e804"; }
 
-/* '' */
-.icon-ellosearch-4:before {
-  content: '\e81b'; }
+.icon-ellodesktop-1:before {
+  content: "\e811"; }
 
-/* '' */
-.icon-ellopicture:before {
-  content: '\e83e'; }
-
-/* '' */
-.icon-ellopicture-3:before {
-  content: '\e83d'; }
-
-/* '' */
-.icon-ellomonitor:before {
-  content: '\e80f'; }
-
-/* '' */
-.icon-elloupload-2:before {
-  content: '\e83a'; }
-
-/* '' */
 .icon-ellosearch-6:before {
-  content: '\e81d'; }
+  content: "\e81d"; }
 
-/* '' */
-.icon-ellosearch-1:before {
-  content: '\e817'; }
+.icon-elloup-open-1:before {
+  content: "\e81e"; }
 
-/* '' */
-.icon-ellosearch-3:before {
-  content: '\e81a'; }
-
-/* '' */
 /*---:[ content styles ]:---*/
 .container {
   width: 100%;
@@ -714,6 +690,7 @@ you can use the generic selector below, but it"s slower:
   .single-post .featured-img-container:before {
     content: "";
     display: block;
+    width: 0;
     padding-top: 58.333%; }
   .single-post .featured-img-container img {
     box-shadow: rgba(0, 0, 0, 0.7) 0 0 10px; }
@@ -841,14 +818,7 @@ you can use the generic selector below, but it"s slower:
   position: relative;
   border-color: #f6f6f6;
   border-style: solid;
-  border-width: 1px 1px 2px 1px;
-  /*&:before {
-      content: "";
-      vertical-align: middle;
-      height: 100%;
-      width: 0;
-      display: inline-block;
-  }*/ }
+  border-width: 1px 1px 2px 1px; }
   @media (min-width: 800px) {
     .excerpt {
       background-color: transparent;
@@ -968,10 +938,7 @@ you can use the generic selector below, but it"s slower:
     right: 1px;
     top: 1px;
     padding: 8px;
-    background-color: rgba(0, 0, 0, 0.65);
-    /*@include breakpoint($contentBreak) {
-        width: 120px;   
-    }*/ }
+    background-color: rgba(0, 0, 0, 0.65); }
     .excerpt .meta:hover, .excerpt .meta:visited {
       color: #AAA;
       text-decoration: none; }
@@ -1058,7 +1025,7 @@ you can use the generic selector below, but it"s slower:
     width: 100%; }
   .entry p {
     color: #666;
-    margin: 0 0 20px 0; }
+    margin: 0 0 30px 0; }
   .entry ul, .entry ol {
     margin: 0 0 15px 30px; }
   .entry ul {
@@ -1143,16 +1110,6 @@ you can use the generic selector below, but it"s slower:
   border-top: none;
   margin-top: 0; }
 
-/*div.crayon-syntax {
-	box-sizing: content-box;
-	margin-left: -20px;
-	padding-left: 38px;
-	.crayon-main {
-		margin-left: -40px;
-		padding-right: 40px;
-		box-sizing: content-box;
-	}
-}*/
 .crayon-nums {
   display: none; }
 
@@ -1180,7 +1137,6 @@ you can use the generic selector below, but it"s slower:
     border-left-color: #4c89eb; }
 
 .content-search .cse .gsc-search-button input.gsc-search-button-v2, .content-search input.gsc-search-button-v2, .page-404-search-button {
-  box-sizing: content-box;
   padding: 15px 27px; }
 
 .content-search {
@@ -1632,11 +1588,7 @@ li.widget li a:hover, li.linkcat li a:hover {
     padding-bottom: 10px;
     min-width: 141px;
     text-align: center;
-    z-index: 0;
-    /*@include breakpoint(1165px) {
-        left: 30px;
-        padding-right: 15px;
-    }*/ }
+    z-index: 0; }
   .footer .widget_text:first-child, .footer .widget_text:nth-child(3), .footer .widget_text:nth-child(2) {
     z-index: 1; }
   .footer .widget_text:first-child, .footer .widget_text:nth-child(3), .footer .widget_text:nth-child(2), .footer .widget_synved_social_follow {
@@ -4530,7 +4482,7 @@ img.mfp-img {
   .mfp-zoom-out.mfp-removing.mfp-bg {
     opacity: 0; }
 
-body, .navbar-main, li.menu-item-type-custom, li.menu-item-object-page, li.menu-item-object-category {
+body, li.menu-item-type-custom, li.menu-item-object-page, li.menu-item-object-category {
   margin: 0;
   padding: 0; }
 
@@ -4559,24 +4511,11 @@ body {
   padding-right: 0em;
   margin-left: auto;
   margin-right: auto;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
-  -ms-word-break: break-all;
-  word-break: break-all;
-  word-break: break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
-  -webkit-hyphenate-before: 2;
-  -webkit-hyphenate-after: 3;
-  hyphenate-lines: 3;
   font-size: 15px;
   font-size: 0.9375rem;
   background-color: white;
   font-family: "PTSerifRegular";
   font-weight: normal;
-  word-break: normal;
   -webkit-font-smoothing: antialiased; }
   body:after {
     content: "";
@@ -4619,10 +4558,6 @@ header {
   text-align: center;
   z-index: 5;
   height: 50px; }
-  header a {
-    display: block;
-    height: 100%;
-    width: 100%; }
 
 .header-navicon {
   font-size: 30px;
@@ -4638,6 +4573,8 @@ header {
   position: fixed;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
   -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  transform: rotate(-90deg);
   z-index: 1001; }
   .header-navicon:hover {
     cursor: pointer;
@@ -4645,20 +4582,17 @@ header {
 
 /*---:[ #header styles ]:---*/
 .logo-main {
-  cursor: pointer;
   float: left;
-  height: 100%;
-  margin-left: 20px; }
-
-.site-logo {
-  font-size: 36px;
-  font-size: 2.25rem;
-  display: inline-block;
-  font-family: "League Gothic";
-  color: #fff;
+  margin-left: 20px;
+  height: 50px;
   line-height: 50px;
-  margin-top: 4px;
-  text-shadow: rgba(255, 255, 255, 0.5) 0 0 1px, rgba(0, 0, 0, 0.65) -1px 0 2px; }
+  -webkit-margin-before: 4px; }
+  .logo-main a {
+    font-size: 36px;
+    font-size: 2.25rem;
+    color: #fff;
+    font-family: "League Gothic";
+    text-shadow: rgba(255, 255, 255, 0.5) 0 0 1px, rgba(0, 0, 0, 0.65) -1px 0 2px; }
 
 .logo-main-img {
   margin: auto;
@@ -4666,12 +4600,15 @@ header {
   max-width: 90%; }
 
 .header-social {
+  background-color: #232d33;
   display: inline-block;
   width: 90px;
   height: 20px;
-  margin-top: 15px; }
+  margin-top: 15px;
+  overflow: hidden; }
   .header-social a {
-    color: transparent; }
+    color: transparent;
+    opacity: 0; }
 
 .header-facebook-follow {
   display: inline-block; }
@@ -4679,6 +4616,7 @@ header {
 /*---:[ nav menu styles ]:---*/
 .nav {
   position: fixed;
+  line-height: 1.15;
   top: 15px;
   right: 12px;
   width: 36px;
@@ -4701,6 +4639,7 @@ header {
   top: 36px;
   right: -300px;
   font-family: "SourceSansProRegular";
+  margin: 0;
   padding: 0.5em 0;
   text-transform: uppercase;
   list-style: none;
@@ -4727,7 +4666,7 @@ header {
 li.menu-item-type-custom, li.menu-item-object-page, li.menu-item-object-category {
   display: block;
   height: 2em;
-  line-height: 2em;
+  line-height: 2;
   overflow: hidden;
   padding-top: 2px;
   position: relative;
@@ -4761,14 +4700,6 @@ li.current-menu-item, li.current-menu-parent {
   background-color: #333333; }
   li.current-menu-item a, li.current-menu-parent a {
     color: #fff; }
-
-.icon-font-nav {
-  display: inline-block;
-  font-size: 2em;
-  margin: 0 auto;
-  padding-top: 9px;
-  height: 41px;
-  width: 32px; }
 
 /*---:[ search form ]:---*/
 .menu-header-search {
@@ -4842,7 +4773,8 @@ li.current-menu-item, li.current-menu-parent {
   cursor: pointer;
   display: inline-block;
   text-align: center;
-  margin: 6px 0 0 -28px;
+  margin: 4px 0 0 -28px;
+  -webkit-margin-before: 6px;
   padding: 0;
   overflow: visible;
   position: relative; }
@@ -4915,10 +4847,12 @@ li.current-menu-item, li.current-menu-parent {
   vertical-align: top; }
 
 .page-404-search-container {
-  padding: 5px 0; }
+  padding: 5px 0;
+  height: 55px;
+  width: 100%; }
 
 .page-404-search-form {
-  font-size: 0;
+  height: 100%;
   width: 100%;
   position: relative; }
 
@@ -4928,6 +4862,8 @@ li.current-menu-item, li.current-menu-parent {
   position: absolute;
   left: 0;
   right: 69px;
+  top: 0;
+  bottom: 0;
   border-radius: 6px 0 0 6px;
   height: 45px;
   margin: 0px;
@@ -4937,7 +4873,9 @@ li.current-menu-item, li.current-menu-parent {
   border: 1px solid;
   border-color: #bfbfbf #ddd #ddd #bfbfbf;
   padding: 0 10px;
-  vertical-align: top; }
+  vertical-align: top;
+  width: 100%;
+  max-width: 813px; }
   .page-404-search-input:focus {
     outline: none; }
   .page-404-search-input:hover {
@@ -4946,19 +4884,24 @@ li.current-menu-item, li.current-menu-parent {
 .page-404-search-button {
   position: absolute;
   right: 0;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRkOTBmZSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzM1N2FlOCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4d90fe), color-stop(100%, #357ae8));
   background-image: -webkit-linear-gradient(top, #4d90fe, #357ae8);
+  background-image: -moz-linear-gradient(top, #4d90fe, #357ae8);
+  background-image: -o-linear-gradient(top, #4d90fe, #357ae8);
+  background-image: linear-gradient(top, #4d90fe, #357ae8);
   border: 1px solid;
   border-color: #2F5BB7;
   background-image: none;
   filter: none;
   background-color: #357AE8;
-  box-sizing: content-box;
   font-size: 11px;
   font-weight: bold;
   color: #fff;
   min-width: 13px;
-  width: 13px;
-  height: 13px; }
+  width: 69px;
+  height: 45px; }
   .page-404-search-button:hover {
     cursor: pointer; }
 
