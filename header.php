@@ -43,7 +43,7 @@
 	<header>
 		<div class="logo-main">
 			<a href="<?php echo home_url(); ?>" title="<?php echo get_bloginfo( 'name', 'raw' ); ?>">
-				<span class="site-logo">Technology Explored</span>
+				Technology Explored
 			</a>
 		</div>
 		<span class="header-social">
