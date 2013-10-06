@@ -1,8 +1,8 @@
 /* Typography */
 $h1: 30px;
-$h2: 22px;
+$h2: 24px;
 $h2_ff: "LatoBold";
-$h3: 20px;
+$h3: 18px;
 $h3-comments: 18px;
 $h4: 15px;
 
@@ -115,7 +115,7 @@ abbr, acronym {
 code {
 	color: #090;
 	font-family: Courier, "Courier New", monospace;
-	line-height: 10px;
+	line-height: 1.1;
 }
 pre {
 	@include rem($pre_fontsize);
@@ -139,66 +139,32 @@ p.center {
 h1, h2, h3, h4 {
 	color: $heading_color;
 	letter-spacing: 0px;
+	line-height: 1.1;
+	font-family: $head_font;
+	font-style: normal;
 	font-weight: $head_font_weight;
-}
-h1, h2 {
-	line-height: 1.6em;
-	margin-top: 0.4em;
-	margin-bottom: 0;
+	padding: 0;
+	margin: 0 0 8px;
 }
 h1 {
 	@include rem($h1);
-	@include liga();
-	font-family: $head_font;
-	margin-top: 0.2em;
-    margin-bottom: 0;
+	margin-top: 15px;
 }
 h2 {
 	@include rem($h2);
-	font-family: $h2_ff;
+	margin-top: 20px;
 }
-	/*---:[ headline link colors on the main page, archive pages, and search pages ]:---*/
 h1 a, h1 a:visited, h2 a, h2 a:visited {
 	color: $heading_color;
-}
-	.page h1 {
-		border-bottom: 1px double #ccc;
-		margin: 0 0 6px 0;
-	}
-	.archive h1 {
-		margin: 0 0 10px 0;
-	}
-	
+}	
 h3 {
 	@include rem($h3);
+	color: #222;
+	margin-top: 20px;
 }
-	.entry h3 {
-		margin: 17px 0 6px 0;
-	}
-	#comments h3 {
-		@include rem($h3-comments);
-	}
-	#comments h3.comment_intro {
-		border-top: 2px double #ccc;
-		margin: 0 0 11px 0;
-		padding: 21px 0 0 0;
-	}
-	#comments h3#respond {
-		margin: 22px 0 0 0;
-	}
-
 h4 {
 	@include rem($h4);
-    font-weight: bold;
-}
-.entry {
-  h1 {
-    margin-top: 0;
-    margin-bottom: 0.2em;
-  }
-  h2 {
-    margin-bottom: 0.4em;
-  }
+	font-family: "League Gothic";
 }
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
@@ -211,49 +177,6 @@ h4 {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
 }
-.sosa[data-icon]:before {
-    font-family: "sosa";
-    content: attr(data-icon);
-    speak: none;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* Use the following CSS code if you want to have a class per icon */
-/*
-Instead of a list of all class selectors,
-you can use the generic selector below, but it"s slower:
-[class*="icon-"] {
-
-.icon-android, .icon-chrome, .icon-firefox, .icon-windows8, .icon-magnifying-glass {
-    font-family: "icomoon";
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-}
-.icon-android:before {
-    content: "\e000";
-}
-.icon-chrome:before {
-    content: "\e001";
-}
-.icon-firefox:before {
-    content: "\e002";
-}
-.icon-windows8:before {
-    content: "\e003";
-}
-.icon-magnifying-glass:before {
-    content: "\e004";
-}*/
-
 [class^="icon-ello"]:before, [class*=" icon-ello"]:before {
   font-family: "fontello";
   font-style: normal;
@@ -265,7 +188,6 @@ you can use the generic selector below, but it"s slower:
   width: 1em;
   margin-right: .2em;
   text-align: center;
-  /* opacity: .8; */
  
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
@@ -280,14 +202,6 @@ you can use the generic selector below, but it"s slower:
  
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
- 
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-}
-
-.icon-ellosearch-4 {
-	margin-right: 0.4em;
-	text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
 }
 .icon-ellodesktop-1 {
 	margin-right: 0.4em;
@@ -307,81 +221,11 @@ you can use the generic selector below, but it"s slower:
     width: 40px;
     text-align: center;
 }
-.icon-elloandroid-1:before { content: '\e803'; } /* '' */
-.icon-ellowindows:before { content: '\e804'; } /* '' */
-.icon-elloemail:before { content: '\e809'; } /* '' */
-.icon-ellogmail:before { content: '\e808'; } /* '' */
-.icon-elloup-3:before { content: '\e827'; } /* '' */
-.icon-elloup-2:before { content: '\e826'; } /* '' */
-.icon-elloup-big:before { content: '\e835'; } /* '' */
-.icon-elloup-1:before { content: '\e823'; } /* '' */
-.icon-elloup-fat:before { content: '\e825'; } /* '' */
-.icon-elloup-bold:before { content: '\e824'; } /* '' */
-.icon-elloup-dir-1:before { content: '\e83b'; } /* '' */
-.icon-elloup-dir:before { content: '\e838'; } /* '' */
-.icon-ellomenu-3:before { content: '\e849'; } /* '' */
-.icon-ellomail-6:before { content: '\e80c'; } /* '' */
-.icon-ellomail-3:before { content: '\e807'; } /* '' */
-.icon-ellomail:before { content: '\e800'; } /* '' */
-.icon-ellomail-2:before { content: '\e806'; } /* '' */
-.icon-elloup-5:before { content: '\e82d'; } /* '' */
-.icon-ellosearch:before { content: '\e816'; } /* '' */
-.icon-ellodesktop-2:before { content: '\e812'; } /* '' */
-.icon-ellomail-5:before { content: '\e80b'; } /* '' */
-.icon-elloup-outline:before { content: '\e82b'; } /* '' */
-.icon-elloup-4:before { content: '\e82a'; } /* '' */
-.icon-elloup-small:before { content: '\e82c'; } /* '' */
-.icon-ellosearch-5:before { content: '\e81c'; } /* '' */
-.icon-ellodesktop-1:before { content: '\e811'; } /* '' */
-.icon-ellodesktop-3:before { content: '\e815'; } /* '' */
-.icon-ellopicture-2:before { content: '\e840'; } /* '' */
-.icon-elloflow-split:before { content: '\e84b'; } /* '' */
-.icon-elloflow-merge:before { content: '\e84c'; } /* '' */
-.icon-elloflow-cross:before { content: '\e84a'; } /* '' */
-.icon-ellopicture-outline:before { content: '\e841'; } /* '' */
-.icon-ellopicture-1:before { content: '\e83f'; } /* '' */
-.icon-elloinfinity-outline:before { content: '\e814'; } /* '' */
-.icon-ellomail-1:before { content: '\e805'; } /* '' */
-.icon-elloup:before { content: '\e820'; } /* '' */
-.icon-ellopi-outline:before { content: '\e813'; } /* '' */
-.icon-elloup-open:before { content: '\e81f'; } /* '' */
-.icon-ellomail-4:before { content: '\e80a'; } /* '' */
-.icon-ellomenu-outline:before { content: '\e848'; } /* '' */
-.icon-ellomenu-1:before { content: '\e846'; } /* '' */
-.icon-elloupload-outline:before { content: '\e828'; } /* '' */
-.icon-elloupload:before { content: '\e829'; } /* '' */
-.icon-ellosearch-outline:before { content: '\e818'; } /* '' */
-.icon-ellosearch-2:before { content: '\e819'; } /* '' */
-.icon-elloup-bold-1:before { content: '\e82e'; } /* '' */
-.icon-elloup-circled:before { content: '\e832'; } /* '' */
-.icon-elloup-open-1:before { content: '\e81e'; } /* '' */
-.icon-elloup-open-3:before { content: '\e830'; } /* '' */
-.icon-elloup-open-mini:before { content: '\e831'; } /* '' */
-.icon-elloup-open-big:before { content: '\e82f'; } /* '' */
-.icon-elloup-micro:before { content: '\e839'; } /* '' */
-.icon-ellofirefox:before { content: '\e843'; } /* '' */
-.icon-ellochrome:before { content: '\e842'; } /* '' */
-.icon-elloie:before { content: '\e844'; } /* '' */
-.icon-elloup-open-2:before { content: '\e822'; } /* '' */
-.icon-ellomenu-2:before { content: '\e847'; } /* '' */
-.icon-elloupload-1:before { content: '\e821'; } /* '' */
-.icon-ellomonitor-1:before { content: '\e810'; } /* '' */
-.icon-elloup-circled-1:before { content: '\e83c'; } /* '' */
-.icon-ellomenu:before { content: '\e845'; } /* '' */
-.icon-ellosort-up:before { content: '\e837'; } /* '' */
-.icon-ellomail-alt:before { content: '\e801'; } /* '' */
-.icon-elloangle-double-up:before { content: '\e836'; } /* '' */
-.icon-elloangle-up:before { content: '\e833'; } /* '' */
-.icon-ellodesktop:before { content: '\e80e'; } /* '' */
-.icon-ellogamepad:before { content: '\e80d'; } /* '' */
-.icon-elloup-6:before { content: '\e834'; } /* '' */
-.icon-elloandroid:before { content: '\e802'; } /* '' */
-.icon-ellowin8:before { content: '\e84d'; } /* '' */
-.icon-ellosearch-4:before { content: '\e81b'; } /* '' */
-.icon-ellopicture:before { content: '\e83e'; } /* '' */
-.icon-ellopicture-3:before { content: '\e83d'; } /* '' */
-.icon-ellomonitor:before { content: '\e80f'; } /* '' */
-.icon-elloupload-2:before { content: '\e83a'; } /* '' */
-.icon-ellosearch-6:before { content: '\e81d'; } /* '' */
-.icon-ellosearch-1:before { content: '\e817'; } /* '' */
-.icon-ellosearch-3:before { content: '\e81a'; } /* '' */
+.icon-elloandroid-1:before { content: "\e803"; }
+.icon-ellogamepad:before { content: "\e80d"; }
+.icon-ellochrome:before { content: "\e842"; }
+.icon-elloflow-split:before { content: "\e84b"; }
+.icon-ellowindows:before { content: "\e804"; }
+.icon-ellodesktop-1:before { content: "\e811"; }
+.icon-ellosearch-6:before { content: "\e81d"; }
+.icon-elloup-open-1:before { content: "\e81e"; }
