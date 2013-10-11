@@ -5,4 +5,5 @@ This project showcases my current workflow setup for developing the design for m
 Technology Explored WordPress Design Workflow
 * Source: [https://github.com/techXplored/technology-explored-wptheme](https://github.com/techXplored/technology-explored-wptheme)
 * Homepage: [http://techexplored.com](http://techexplored.com)
+* Facebook: [@techexplored](http://www.facebook.com/techexplored)
 * Twitter: [@techXplored](http://twitter.com/techXplored)
